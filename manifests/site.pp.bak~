@@ -1,0 +1,195 @@
+
+#########################
+# Setup Dir
+#########################
+
+file{ "c:/setup":
+  ensure => "directory"
+}
+
+########################
+#ping buffer size
+########################
+
+registry::value{ "PingBufferSize":
+  key => "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon",
+  type => dword,
+  data => 1024
+}
+
+#######################
+# UAC Settings -- fixed
+#######################
+registry::value{ "ConsentPromptBehaviorAdmin":
+  key => "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System",
+  type => dword,
+  data => 4
+}
+registry::value{ "EnableLUA":
+  key => "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System",
+  type => dword,
+  data => 1
+}
+registry::value{ "PromptOnSecureDesktop":
+  key => "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System",
+  type => dword,
+  data => 0
+}
+
+#######################
+# Install and run(As a Service) brynhildr
+#######################
+
+file{ "c:/Program Files/brynhildr":
+  ensure => present,
+  source => "puppet:///files/brynhildr",
+  source_permissions => ignore,
+  recurse => true
+}
+
+exec{ "install_brynhildr_as_a_svc":
+  provider => powershell,
+  command =>  "New-Service -name brynhildr -BinaryPathName 'c:/Program Files/brynhildr/brynhildr.exe /service' -StartupType Automatic",
+  unless => "if(get-Service -name 'brynhildr*'){exit 1}",
+  require => File["c:/Program Files/brynhildr"]
+}
+
+service { "brynhildr":
+  ensure => running,
+  enable => true,
+  require => Exec["install_brynhildr_as_a_svc"]
+}
+
+
+##############################
+# Microsoft acount Optionalize
+##############################
+
+registry::value{ "MSAOptional":
+  key => "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System",
+  type => dword,
+  data => 1
+}
+
+######################
+# Shop User Add
+######################
+user { "s9999-staff":
+  name => "s9999-staff",
+  ensure => present,
+  password => "P@ssw0rd",
+  groups => ["Power Users"],
+  home => "c:/users/s9999-staff",
+  managehome => true
+}
+
+#trusted site
+
+#registry_key{ "HKCU/Software/Microsoft/Windows/CurrentVersion/Internet Settings/ZoneMap/Domains":
+#  ensure => present
+#}
+
+########################
+#Adobe Reader Install
+########################
+
+file{ "c:/setup/acrobat":
+  ensure => present,
+  source => "puppet:///files/acrobat",
+  recurse => true,
+  require => File["c:/setup"]
+}
+
+package{ "Adobe Reader":
+  ensure => installed,
+  provider => windows,
+  source => "c:/setup/acrobat/AcroRead.msi",
+  install_options => ["/quiet"],
+  require => File["c:/setup/acrobat"]
+}
+
+############################
+#Adobe flash player Install
+############################
+
+file{ "c:/setup/install_flash_player_15_plugin.msi":
+  ensure => present,
+  source => "puppet:///files/install_flash_player_15_plugin.msi",
+  require => File["c:/setup"]
+}
+
+package{ "flash_plugin":
+  ensure => installed,
+  provider => "windows",
+  source => "c:/setup/install_flash_player_15_plugin.msi",
+  install_options => ["/quiet"],
+  require => File["c:/setup/install_flash_player_15_plugin.msi"]
+}
+
+########################
+#printer driver Install
+########################
+
+file{ "c:/setup/176757":
+  ensure => present,
+  source => "puppet:///files/176757",
+  recurse => true,
+  require => File["c:/setup"]
+}
+
+file{ "c:/setup/176758":
+  ensure => present,
+  source => "puppet:///files/176758",
+  recurse => true,
+  require => File["c:/setup"]
+}
+
+exec{ "install c305 driver":
+  command => template('ricoh/install_c305.ps1'),
+  provider => powershell,
+  logoutput => true,
+  require => [File["c:/setup/176757"],File["c:/setup/176758"]]
+}
+
+###########################
+#optional feature mgmt
+##########################
+
+winoptionalfeature{"SMB1Protocol":
+  ensure => absent,
+  restart => false
+}
+winoptionalfeature{"Xps-Foundation-Xps-Viewer":
+  ensure => absent,
+  restart => false
+}
+winoptionalfeature{"WorkFolders-Client":
+  ensure => present,
+  restart => false
+}
+winoptionalfeature{"Printing-XPSServices-Features":
+  ensure => absent,
+  restart => false
+}
+winoptionalfeature{"FaxServicesClientPackage":
+  ensure => absent,
+  restart => false
+}
+
+###############################
+# groove download and install
+##############################
+
+file{ "c:/setup/groove":
+  ensure => present,
+  source => "puppet:///files/groove",
+  source_permissions => ignore, 
+  recurse => true,
+  require => File["c:/setup"]
+}
+
+exec{ "download_groove":
+  command => "c:/setup/groove/setup.exe /configure c:/setup/groove/configuration.xml",
+  provider => powershell,
+  require => File["c:/setup/groove"]
+}

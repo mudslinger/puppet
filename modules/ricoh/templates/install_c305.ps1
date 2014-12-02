@@ -1,0 +1,22 @@
+#install printer if not installed
+#write-debug (Get-Printer -Name "C305*")
+#write-debug ((Get-Printer -Name "C305*").Count -eq 0)
+
+if( (Get-Printer -Name "C305*").Count -gt 0){
+  exit
+}
+#install driver by pnpUtil
+pnpUtil -i -a C:\setup\176757\oemsetup.inf
+pnpUtil -i -a c:\setup\176758\oemsetup.inf
+
+#install driver by powershell
+Add-PrinterDriver -Name "RICOH RPCS Basic BW"
+Add-PrinterDriver -Name "RICOH RPCS Basic Color"
+
+#create printer port
+Add-PrinterPort -PrinterHostAddress 192.168.128.8 -Name "IP_192.168.128.8_BW"
+Add-PrinterPort -PrinterHostAddress 192.168.128.8 -Name "IP_192.168.128.8_Color"
+
+#create printer
+Add-Printer -Name "C305_MONO" -DriverName "RICOH RPCS BASIC BW" -PortName "IP_192.168.128.8_BW"
+Add-Printer -Name "C305_COLOR" -DriverName "RICOH RPCS BASIC Color" -PortName "IP_192.168.128.8_Color"

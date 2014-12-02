@@ -1,0 +1,25 @@
+{
+  "project_page": "",
+  "license": "Apache License, Version 2.0",
+  "source": "https://github.com/dylanratcliffe1/winoptionalfeature",
+  "types": [
+
+  ],
+  "description": "This puppet module creates a new defined type 'winoptionalfeature'. This can be called within any\nclass to install/remove windows features based on their ID string ex: 'Web-Server' or a \ncomma seperated list of feature IDs ex: 'Telnet-Client,Telnet-Server' \n\nThe functionality is simply a wrapper to the powershell cmdlets 'Enable-WindowsOptionalFeature' and 'Disable-WindowsOptionalFeature'.\nAll cmdlet parameters are supported by this module.\n\nInspired from puppet module: https://forge.puppetlabs.com/admin36/winfeature",
+  "version": "0.0.6",
+  "summary": "Installs and Removes Windows Features",
+  "name": "dylanratcliffe-winoptionalfeature",
+  "author": "Dylan Ratcliffe",
+  "dependencies": [
+    {
+      "name": "joshcooper/powershell",
+      "version_requirement": ">=0.0.5"
+    }
+  ],
+  "checksums": {
+    "Modulefile": "9ce3b82369071c2db2c094670ffc72e4",
+    "README.md": "9fa406743f16b0a9357e5ff65413aca5",
+    "license": "df1e40caa04a8916d4373abe9c19e465",
+    "manifests/init.pp": "c8de74649c6b3eb2b128c358d5010dea"
+  }
+}
