@@ -6,17 +6,6 @@
 # stdlib
 # winoptionalfeature
 
-#########################
-# Setup Dir
-#########################
-#class setup{
-#  $setupdir  = "c:\\setup"
-#  file{ $setupdir:
-#    ensure => "directory"
-#  }
-#}
-
-
 ###############################
 # groove download and install
 ##############################
@@ -165,16 +154,6 @@ class brynhildr{
   }
 }
 
-##############################
-# Microsoft acount Optionalize
-##############################
-class msao{
-  registry::value{ "MSAOptional":
-    key => "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System",
-    type => dword,
-    data => 1
-  }
-}
 
 ######################
 # Shop User Add
@@ -200,32 +179,6 @@ class trusted-site{
   }
 }
 
-###########################
-#optional feature mgmt
-##########################
-class opt-feature{
-  winoptionalfeature{"SMB1Protocol":
-    ensure => absent,
-    restart => false
-  }
-  winoptionalfeature{"Xps-Foundation-Xps-Viewer":
-    ensure => absent,
-    restart => false
-  }
-  winoptionalfeature{"WorkFolders-Client":
-    ensure => present,
-    restart => false
-  }
-  winoptionalfeature{"Printing-XPSServices-Features":
-    ensure => absent,
-    restart => false
-  }
-  winoptionalfeature{"FaxServicesClientPackage":
-    ensure => absent,
-    restart => false
-  }
-}
-
 ########################
 # Win-NTP
 ########################
@@ -236,15 +189,6 @@ class opt-feature{
 #  max_neg_phase_correction => 54000
 #}
 
-#####################
-# Remove unnecesally package for thinkpad 10
-#####################
-class remove-appxes {
-  exec{ 'removepackages':
-    provider => powershell,
-    command => template('remove-appx/remove-appx.ps1')
-  }
-}
 
 node default {
   include uac
@@ -254,7 +198,7 @@ node default {
   include ricoh
 #  include adobe-reader
 #  include flash-plugin
-#  include msao
+  include msao
   include ping-buffer-size
 # include groove
 # include eset
