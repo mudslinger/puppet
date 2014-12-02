@@ -2,5 +2,9 @@
 **/*.exe
 **/*.cab
 **/*.msi
+*.exe
+*.cab
+*.msi
+
 files/**/*
 files/*
