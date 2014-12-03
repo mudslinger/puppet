@@ -14,9 +14,12 @@ class vnc inherits setup{
       "/quiet",
       "/norestart",
       "ADDLOCAL=Server",
-      'SET_IPACCESSCONTROL=192.168.0.0-192.168.255.255:0',
+      "SET_IPACCESSCONTROL=1",
+      "VALUE_OF_IPACCESSCONTROL=192.168.0.0-192.168.255.255:0",
       "SET_USECONTROLAUTHENTICATION=1",
-      "SET_CONTROLPASSWORD=P@ssw0rd"
+      "VALUE_OF_USEVNCAUTHENTICATION=1",
+      "SET_PASSWORD=1",
+      "VALUE_OF_PASSWORD=P@ssw0rd"
     ],
     require => File[$vncpath]
   }
