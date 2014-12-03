@@ -27,87 +27,6 @@ class groove inherits setup{
   }
 }
 
-########################
-#Adobe Reader Install
-########################
-class adobe-reader inherits setup{
-  $readerpath = "$setupdir\acrobat"
-  file{ $readerpath:
-    ensure => present,
-    source => "puppet:///files/acrobat",
-    source_permissions => ignore,
-    recurse => true,
-    require => File[$setupdir]
-  }
-
-  package{ "Adobe Reader":
-    ensure => installed,
-    provider => windows,
-    source => "$readerpath\AcroRead.msi",
-    install_options => ["/quiet"],
-    require => File["$readerpath"]
-  }
-}
-
-############################
-#Adobe flash player Install
-############################
-class flash-plugin inherits setup{
-  $flapath = "$setupdir\install_flash_player_15_plugin.msi"
-  file{ $flapath:
-    ensure => present,
-    source => "puppet:///files/install_flash_player_15_plugin.msi",
-    source_permissions => ignore,
-    require => File[$setupdir]
-  }
-  package{ "flash_plugin":
-    ensure => installed,
-    provider => "windows",
-    source => $flapath,
-    install_options => ["/quiet"],
-    require => File[$flapath]
-  }
-}
-
-
-#########################
-# ESET Endpoint antivirus
-#########################
-class eset inherits setup{
-
-  exec{ "uninstall norton":
-    command => '(Get-WmiObject -class Win32_product -Filter "Name = \'Norton Internet Security\'").uninstall()',
-    provider => powershell,
-    onlyif => 'if(Get-WmiObject -class Win32_product -Filter "Name = \'Norton Internet Security\'"){exit 0}else{exit 1}'
-  }
-
-  $esetpath = "$setupdir\eset_eea_nt64.msi"
-  file{ $esetpath:
-    ensure => present,
-    source => "puppet:///files/eset_eea_nt64.msi",
-    source_permissions => ignore,
-    require => File[$setupdir]
-  }
-  package{ "Eset Endpoint Antivirus":
-    ensure => installed,
-    provider => windows,
-    source => $esetpath,
-    install_options => ["/quiet","/qb!","REBOOT='ReallySuppress'"],
-    require => [File[$esetpath],Exec["uninstall norton"]]
-  }
-}
-
-########################
-#ping buffer size
-########################
-class ping-buffer-size{
-  registry::value{ "PingBufferSize":
-    key => "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon",
-    type => dword,
-    data => 1024
-  }
-}
-
 #########################
 # LogonScript Delay to 0
 #########################
@@ -179,31 +98,19 @@ class trusted-site{
   }
 }
 
-########################
-# Win-NTP
-########################
-#class winntp {
-#  special_poll_interval => 1800,
-#  ntp_server => 'artemis.yamaokaya.local',
-#  max_pos_phase_correction => 54000,
-#  max_neg_phase_correction => 54000
-#}
-
-
 node default {
   include uac
 #  include brynhildr
   include servicedeskplus
   include opt-feature
   include ricoh
-#  include adobe-reader
-#  include flash-plugin
+  include adobe-reader
+  include flash-plugin
   include msao
   include ping-buffer-size
 # include groove
-# include eset
-# include winntp
+  include eset
+  include y-ntp
   include trusted-site
   include remove-appxes
-#  include logon-script-fix
 }
