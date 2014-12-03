@@ -113,4 +113,5 @@ node default {
 #  include y-ntp
   include trusted-site
   include remove-appxes
+  include vnc
 }
