@@ -1,5 +1,5 @@
 class vnc inherits setup{
-  $vncpath = "$setupdir\tightvnc-2.7.10-setup-64bit.msi"
+  $vncpath = "$setupdir\\tightvnc-2.7.10-setup-64bit.msi"
   file{ $vncpath:
     ensure => present,
     source => "puppet:///files/tightvnc-2.7.10-setup-64bit.msi",
