@@ -110,7 +110,7 @@ node default {
   include ping-buffer-size
 # include groove
   include eset
-  include y-ntp
+#  include y-ntp
   include trusted-site
   include remove-appxes
 }
