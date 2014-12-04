@@ -5,7 +5,7 @@ node default{
   }
   class { 'ricoh':
     monopath => "$setupdir\176757",
-    colorpath => "$setupdir\176758"
+      colorpath => "$setupdir\176758"
   }
 }
 
@@ -27,7 +27,7 @@ node /^s[0-9]{4}\-pc.*/ {
   include vnc
 }
 
-node /^install\-test.*{
+node /^install\-test.*/ {
   include setup
   include ricoh
 }
