@@ -26,4 +26,4 @@ node /^s[0-9]{4}\-pc.*/ {
   include vnc
 }
 
-inport 'nodes.pp'
+import 'nodes.pp'
