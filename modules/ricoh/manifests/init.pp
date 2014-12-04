@@ -22,7 +22,7 @@ class ricoh($printer_ip = "192.168.128.8") inherits setup{
   }
 
   exec{ "install c305 driver":
-    command => template('ricoh/install_c305.ps1'),
+    command => template('ricoh/install_c305.ps1.erb'),
     provider => powershell,
     logoutput => true,
     require => [File[$monopath],File[$colorpath]]
