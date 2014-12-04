@@ -1,15 +1,15 @@
 ########################
 #printer driver Install
 ########################
-class ricoh($printer_ip = "192.168.128.8"){
-  #$monopath = "$setupdir\176757"
-  #$colorpath = "$setupdir\176758"
+class ricoh($printer_ip = "192.168.128.8") inherits setup{
+  $monopath = "$setupdir\176757"
+  $colorpath = "$setupdir\176758"
   file{ $monopath:
     ensure => present,
     source => "puppet:///files/176757",
     source_permissions => ignore,
     recurse => true,
-    require => File["c:\\setup"]
+    require => File[$setupdir]
   }
 
   file{ $colorpath:
@@ -17,7 +17,7 @@ class ricoh($printer_ip = "192.168.128.8"){
     source => "puppet:///files/176758",
     source_permissions => ignore,
     recurse => true,
-    require => File["c:\\setup"]
+    require => File[$setupdir]
   }
 
   exec{ "install c305 driver":
