@@ -1,8 +1,6 @@
 ---
-setup:
-  setupdir: c:\\setup
-ricoh:
-  setupdir: c:\\setup
-  printer_ip: 192.168.1.1
-  monopath: $setupdir\176757
-  colorpath: $setupdir\176758
+setup::setupdir: c:\\setup
+ricoh::setupdir: c:\\setup
+ricoh::printer_ip: 192.168.1.1
+ricoh::monopath: $setupdir\176757
+ricoh::colorpath: $setupdir\176758
