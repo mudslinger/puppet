@@ -9,6 +9,9 @@ node default{
   class { 'winntp':
     ntp_server => '192.168.11.1'
   }
+  notify{"$facts['operatingsystem']"}
+
+  #why does not work?
   if $operatingsystem == 'windows' {
     if $operatingsystemrelease == '8.1' {
       include remove-appxes
