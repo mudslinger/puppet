@@ -4,5 +4,6 @@
 :yaml:
   :datadir: /etc/puppet/hieradata
 :hierarchy:
+  - defaults
   - hosts/%{::hostname}
-  - common
+  - global
