@@ -1,0 +1,14 @@
+<Configuration>
+  <Add OfficeClientEdition="64" >
+    <Product ID="HomeBusinessRetail">
+      <Language ID="ja-jp" />
+      <ExcludeApp ID="Outlook" />
+    </Product>
+    <Product ID="GrooveRetail">
+      <Language ID="ja-jp" />
+    </Product>
+  </Add>
+  <Updates Enabled="TRUE"/>
+  <Display Level="None" AcceptEULA="TRUE" />
+  <Logging Level="Standard" Path="%temp%" />
+</Configuration>
