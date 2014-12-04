@@ -108,7 +108,7 @@ node default {
   include flash-plugin
   include msao
   include ping-buffer-size
-# include groove
+  include groove
   include eset
 #  include y-ntp
   include trusted-site
