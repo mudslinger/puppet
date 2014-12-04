@@ -13,7 +13,7 @@ class office inherits setup{
   }
   file { $confxmlpath:
     ensure => present,
-    source => template('office/configuration.xml'),
+    source => template('~/configuration.xml'),
     source_permissions => ignore, 
     recurse => true,
     require => File[$grvpath]
