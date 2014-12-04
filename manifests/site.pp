@@ -30,4 +30,7 @@ node /^s[0-9]{4}\-pc.*/ {
 node /^install\-test.*/ {
   include setup
   include ricoh
+  class { "ricoh":
+    printer_ip => '192.168.127.8'
+  }
 }
