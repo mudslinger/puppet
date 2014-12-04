@@ -1,5 +1,4 @@
 node default{
-  include setup
   class { 'setup':
     setupdir => "c:\\setup"
   }
@@ -10,7 +9,6 @@ node default{
   class { 'winntp':
     ntp_server => '192.168.11.1'
   }
-
 }
 
 node /^s[0-9]{4}\-pc.*/ {
