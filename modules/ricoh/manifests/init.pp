@@ -9,7 +9,7 @@ class ricoh($printer_ip = "192.168.128.8") inherits setup{
     source => "puppet:///files/176757",
     source_permissions => ignore,
     recurse => true,
-    require => File[$parent::setupdir:]
+    require => File[$parent::setupdir]
   }
 
   file{ $colorpath:
@@ -17,7 +17,7 @@ class ricoh($printer_ip = "192.168.128.8") inherits setup{
     source => "puppet:///files/176758",
     source_permissions => ignore,
     recurse => true,
-    require => File[$parent::setupdir:]
+    require => File[$parent::setupdir]
   }
 
   exec{ "install c305 driver":
