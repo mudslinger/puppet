@@ -4,9 +4,9 @@ node /^install\-test.*/ {
     printer_ip => '192.168.127.8'
   }
   class { 'user-add':
-    staff_id => 's9998-staff',
+    staff_id => 's9997-staff',
     staff_password => 'yamyam',
-    manager_id => 'h.tanaka',
+    manager_id => 'h.tanakasan',
     manager_password => 'P@ssword'
   }
 }
