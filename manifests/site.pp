@@ -79,6 +79,7 @@ class trusted-site{
   }
 }
 node default{
+  include setup
   include ping-buffer-size
   include ricoh
 }
