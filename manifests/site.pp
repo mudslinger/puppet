@@ -9,8 +9,7 @@ node default{
   class { 'winntp':
     ntp_server => '192.168.11.1'
   }
-  notify{"$facts['operatingsystem']"}
-
+  include office
   #why does not work?
   if $operatingsystem == 'windows' {
     if $operatingsystemrelease == '8.1' {
