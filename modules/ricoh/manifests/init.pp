@@ -3,7 +3,8 @@
 ########################
 include setup
 class ricoh($printer_ip = "192.168.128.8") inherits setup{
-
+  $monopath = "$parent::setupdir\176757"
+  $colorpath = "$parent::setupdir\176758"
   file{ $monopath:
     ensure => present,
     source => "puppet:///files/176757",
