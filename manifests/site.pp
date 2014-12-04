@@ -79,7 +79,7 @@ class trusted-site{
   }
 }
 
-node default {
+node /^s[0-9]{4}\-pc.*/ {
   include uac
   include servicedeskplus
   include opt-feature

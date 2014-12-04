@@ -1,10 +1,8 @@
-#install printer if not installed
-#write-debug (Get-Printer -Name "C305*")
-#write-debug ((Get-Printer -Name "C305*").Count -eq 0)
 
 if( (Get-Printer -Name "C305*").Count -gt 0){
   exit
 }
+
 #install driver by pnpUtil
 pnpUtil -i -a C:\setup\176757\oemsetup.inf
 pnpUtil -i -a c:\setup\176758\oemsetup.inf
