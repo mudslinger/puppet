@@ -1,11 +1,11 @@
 node default{
   include setup
-  class{setup:
+  class{'setup':
     $setupdir => "c:\\setup"
   }
-  class{ricoh:
-    $monopath = "$setupdir\176757"
-    $colorpath = "$setupdir\176758"
+  class{'ricoh':
+    $monopath => "$setupdir\176757",
+    $colorpath => "$setupdir\176758"
   }
 }
 
