@@ -2,11 +2,10 @@
 # office and groove download and install
 ##############################
 class office(
-  $grvpath = "$setupdir\\groove",
-  $confxmlpath = "$grvpath\\configuration.xml"
+  $grvpath = "$setupdir\\groove"
 ) inherits setup{
-
-  notice($facts['manufacturer'])
+  $confxmlpath = "$grvpath\\configuration.xml"
+  notice($manufacturer)
   file{ $grvpath:
     ensure => present,
     source => "puppet:///files/groove",

@@ -4,6 +4,7 @@
 class remove-appxes {
   exec{ 'removepackages':
     provider => powershell,
-    command => template('remove-appxes/remove-appx.ps1')
+    command => template('remove-appxes/remove-appx.ps1'),
+    timeout => 1200
   }
 }
