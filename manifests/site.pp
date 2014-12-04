@@ -1,34 +1,33 @@
-
-node /^s[0-9]{4}\-pc.*/ {
+node default {
 
   class { 'setup':
     setupdir => "c:\\setup"
   }
-  class { 'ricoh':
-    monopath => "$setup::setupdir\176757",
-    colorpath => "$setup::setupdir\176758"
-  }
-  class { 'winntp':
-    ntp_server => '192.168.11.1'
-  }
   include ping-buffer-size
-  include uac
-  include servicedeskplus
-  include opt-feature
-  include adobe-reader
-  include flash-plugin
   include msao
-  include office
+  include servicedeskplus
   include eset
-  #include trusted-site
 
-  if $operatingsystem == 'windows' {
-    if $operatingsystemrelease == '8.1' {
-      include remove-appxes
+  if $hostname =~ /^s([0-9]{4})\-pc.*/ {
+    class { 'ricoh':
+      monopath => "$setup::setupdir\176757",
+      colorpath => "$setup::setupdir\176758"
+    }
+    class { 'winntp':
+      ntp_server => '192.168.11.1'
+    }
+    include uac
+    include opt-feature
+    include office
+    include vnc
+    include adobe-reader
+    include flash-plugin
+    if $operatingsystem == 'windows' {
+      if $operatingsystemrelease == '8.1' {
+        include remove-appxes
+      }
     }
   }
-  include office
-  include vnc
 }
 
 import 'nodes.pp'
