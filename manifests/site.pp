@@ -32,5 +32,4 @@ node /^install\-test.*/ {
   class { "ricoh":
     printer_ip => '192.168.127.8'
   }
-  include ricoh
 }
