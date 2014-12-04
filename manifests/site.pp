@@ -1,4 +1,6 @@
-node default{
+
+node /^s[0-9]{4}\-pc.*/ {
+
   class { 'setup':
     setupdir => "c:\\setup"
   }
@@ -9,10 +11,6 @@ node default{
   class { 'winntp':
     ntp_server => '192.168.11.1'
   }
-
-}
-
-node /^s[0-9]{4}\-pc.*/ {
   include ping-buffer-size
   include uac
   include servicedeskplus
@@ -22,8 +20,14 @@ node /^s[0-9]{4}\-pc.*/ {
   include msao
   include office
   include eset
-  include trusted-site
-  #include remove-appxes
+  #include trusted-site
+
+  if $operatingsystem == 'windows' {
+    if $operatingsystemrelease == '8.1' {
+      include remove-appxes
+    }
+  }
+  include office
   include vnc
 }
 

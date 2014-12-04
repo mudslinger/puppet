@@ -9,16 +9,11 @@ node /^install\-test.*/ {
     manager_id => 'h.tanakasan',
     manager_password => 'P@ssword'
   }
-  include office
-  #why does not work?
+
   if $operatingsystem == 'windows' {
     if $operatingsystemrelease == '8.1' {
       include remove-appxes
     }
   }
-  if $manufacturer == 'LENOVO' {
-    if $productname == "20C1A028JP"{
-      include office
-    }
-  }
+  include office
 }
