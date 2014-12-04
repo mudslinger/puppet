@@ -1,0 +1,10 @@
+---
+:backends:
+  - yaml
+:yaml:       #ここがシステムのYAML設定の置き場所
+  :datadir: /etc/puppet/hieradata
+:hierarchy:  # ここが階層構造を指定する部分。
+  - hosts/%{::hostname}-%{::env}
+  - hosts/%{::hostname}
+  - roles/%{myrole}
+  - common

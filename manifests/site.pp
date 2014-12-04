@@ -78,16 +78,18 @@ class trusted-site{
     data => 2
   }
 }
-
+node default{
+  include ping-buffer-size
+  include ricoh
+}
 node /^s[0-9]{4}\-pc.*/ {
   include uac
   include servicedeskplus
   include opt-feature
-  include ricoh
+  
   include adobe-reader
   include flash-plugin
   include msao
-  include ping-buffer-size
   include office
   include eset
 #  include y-ntp

@@ -12,9 +12,9 @@ Add-PrinterDriver -Name "RICOH RPCS Basic BW"
 Add-PrinterDriver -Name "RICOH RPCS Basic Color"
 
 #create printer port
-Add-PrinterPort -PrinterHostAddress 192.168.128.8 -Name "IP_192.168.128.8_BW"
-Add-PrinterPort -PrinterHostAddress 192.168.128.8 -Name "IP_192.168.128.8_Color"
+Add-PrinterPort -PrinterHostAddress <%=@printer_ip%> -Name "IP_<%=@printer_ip%>_BW"
+Add-PrinterPort -PrinterHostAddress <%=@printer_ip%> -Name "IP_<%=@printer_ip%>_Color"
 
 #create printer
-Add-Printer -Name "C305_MONO" -DriverName "RICOH RPCS BASIC BW" -PortName "IP_192.168.128.8_BW"
-Add-Printer -Name "C305_COLOR" -DriverName "RICOH RPCS BASIC Color" -PortName "IP_192.168.128.8_Color"
+Add-Printer -Name "C305_MONO" -DriverName "RICOH RPCS BASIC BW" -PortName "IP_<%=@printer_ip%>_BW"
+Add-Printer -Name "C305_COLOR" -DriverName "RICOH RPCS BASIC Color" -PortName "IP_<%=@printer_ip%>_Color"

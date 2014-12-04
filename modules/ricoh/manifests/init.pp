@@ -1,7 +1,7 @@
 ########################
 #printer driver Install
 ########################
-class ricoh inherits setup{
+class ricoh($printer_ip = "192.168.128.8") inherits setup{
 
   $monopath = "$setupdir\176757"
   $colorpath = "$setupdir\176758"
