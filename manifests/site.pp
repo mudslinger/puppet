@@ -9,18 +9,7 @@ node default{
   class { 'winntp':
     ntp_server => '192.168.11.1'
   }
-  include office
-  #why does not work?
-  if $operatingsystem == 'windows' {
-    if $operatingsystemrelease == '8.1' {
-      include remove-appxes
-    }
-  }
-  if $manufacturer == 'LENOVO' {
-    if $productname == "20C1A028JP"{
-      include office
-    }
-  }
+
 }
 
 node /^s[0-9]{4}\-pc.*/ {
