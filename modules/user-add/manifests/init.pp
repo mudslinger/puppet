@@ -20,5 +20,4 @@ class user-add(
     home => "c:/users/$manager_id",
     managehome => true
   }
-
 }
