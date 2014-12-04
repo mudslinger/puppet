@@ -4,8 +4,8 @@ node default{
     setupdir => "c:\\setup"
   }
   class { 'ricoh':
-    monopath => "$parent::setupdir\176757",
-    colorpath => "$parent::setupdir\176758"
+    monopath => "$setup::params::setupdir\176757",
+    colorpath => "$setup::params::setupdir\176758"
   }
 }
 
