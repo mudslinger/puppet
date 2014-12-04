@@ -1,4 +1,5 @@
-class setup($setupdir = "c:\\setup"){
+class setup{
+  $setupdir = "c:\\setup"
   file{ $setupdir:
     ensure => "directory"
   }
