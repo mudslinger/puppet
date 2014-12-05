@@ -26,7 +26,7 @@ node default {
   }
 }
 
-node install-test.yamaokaya.local inherits default{
+node /^install\-test.*/ inherits default{
   class { 'user-add2':
     staff_id => 's9999-staff',
     staff_password => 'yam',
