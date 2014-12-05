@@ -2,5 +2,4 @@ net user <%=@staff_id%>
 if($LASTEXITCODE -ne 0){
   net user <%=@staff_id%> "yam" /add
 }
-#net user <%=@staff_id%> /comment:"ハワイ店スタッフ" /fullname:"ハワイ店スタッフ" /expires:never /passwordchg:no /scriptpath:"c:\setup\logon.ps1"
-net user <%=@staff_id%> /expires:never /passwordchg:no
+net user <%=@staff_id%> /comment:"<%=@staff_comment%>" /fullname:"<%=@staff_name%>" /expires:never /passwordchg:no /scriptpath:"<%=@staff_scriptpath%>"

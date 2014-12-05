@@ -1,9 +1,9 @@
 class user-add2(
-	$id = "s9999-staff",
-	$name = "スタッフ",
-	$commnet = "",
-	$password = "yam",
-	$scriptpath = "c:\setup\logon.ps1"
+	$staff_id = "s9999-staff",
+	$staff_name = "",
+	$staff_comment = "",
+	$staff_password = "yam",
+	$staff_scriptpath = "c:\setup\logon.ps1"
 ){
 
   exec{ "user-add2":
