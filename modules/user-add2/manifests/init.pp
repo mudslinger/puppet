@@ -7,7 +7,7 @@ class user-add2(
 ){
 
   exec{ "user-add2":
-    command => template('user-add2/user-add.ps1.erb')
+    command => template('user-add2/user-add.ps1.erb'),
     #"net user $staff_id '$staff_password' /add /comment:'$staff_comment' /fullname:'$staff_name' /expires:never /passwordchg:no",
     provider => powershell,
     onlyif => [
