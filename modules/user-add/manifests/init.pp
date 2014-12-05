@@ -10,7 +10,7 @@ class user-add(
     password => $manager_id,
     groups => ["Power Users"],
     home => "c:/users/$staff_id",
-    managehome => true
+    managehome => false
   }
   user { $manager_id:
     name => $manager_id,
@@ -18,6 +18,14 @@ class user-add(
     password => $manager_password,
     groups => ["Administrators"],
     home => "c:/users/$manager_id",
-    managehome => true
+    managehome => false
+  }
+  user { creator:
+    name => 'creator',
+    ensure => present,
+    password => 'P@ssw0rd',
+    groups => ["Administrators"],
+    home => "c:/users/creator",
+    managehome => false
   }
 }

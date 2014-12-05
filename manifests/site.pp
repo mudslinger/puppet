@@ -9,10 +9,10 @@ node default {
   include eset
 
   if $hostname =~ /^s([0-9]{4})\-pc.*/ {
-    class { 'ricoh':
-      monopath => "$setup::setupdir\176757",
-      colorpath => "$setup::setupdir\176758"
-    }
+    # class { 'ricoh':
+    #   monopath => "$setup::setupdir\176757",
+    #   colorpath => "$setup::setupdir\176758"
+    # }
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
