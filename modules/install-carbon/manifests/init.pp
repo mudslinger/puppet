@@ -6,7 +6,7 @@ class install-carbon inherits setup{
     source_permissions => ignore,
     recurse => true,
     require => File[$setupdir]
-  },
+  }
 
   exec { "import-carbon":
   	command => "$carbonpath\\Import-Carbon.ps1",
