@@ -1,8 +1,7 @@
-try{
-	net user <%=@staff_id%>
-}catch
-	if($LASTEXITCODE -ne 0){
-  	net user <%=@staff_id%> "yam" /add
-	}
+Invoke-Expression "net user <%=@staff_id%>"
+
+if($LASTEXITCODE -ne 0){
+  	Invoke-Expression "net user <%=@staff_id%> yam /add"
 }
-net user <%=@staff_id%> /comment:"<%=@staff_comment%>" /fullname:"<%=@staff_name%>" /expires:never /passwordchg:no /scriptpath:"<%=@staff_scriptpath%>"
+
+Invoke-Expression @"net user <%=@staff_id%> /comment:"<%=@staff_comment%>" /fullname:"<%=@staff_name%>" /expires:never /passwordchg:no /scriptpath:"<%=@staff_scriptpath%>"
