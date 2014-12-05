@@ -27,13 +27,14 @@ node default {
 }
 
 node /^install\-test.*/ inherits default{
+  include install-carbon
   class { 'user-add2':
     staff_id => 's9998-staff',
     staff_password => 'yam',
-    staff_name => 'さすらい',
-    staff_comment => 'さすらっている',
+    staff_name => 'sasurai',
+    staff_comment => 'sasurai',
     staff_scriptpath => 'c:\setup\login.ps1'
   }
 }
 
-import 'nodes.pp'
+#import 'nodes.pp'
