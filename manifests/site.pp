@@ -27,7 +27,7 @@ node default {
 }
 
 node install-test.yamaokaya.local inherits default{
-  class { 'user-add':
+  class { 'user-add2':
     id => 's9999-staff',
     password => 'yam',
     name => 'さすらい店スタッフ',
