@@ -1,4 +1,1 @@
-if ((net user | Out-String).IndexOf('<%=@staff_id%>') -lt 0){
-  net user <%=@staff_id%> "<%=@staff_password%>" /add | Out-Null
-}
-net user <%=@staff_id%> /comment:'<%=@staff_comment%>' /fullname:'<%=@staff_name%>' /expires:never /passwordchg:no | Out-Null
+net user <%=@staff_id%> '<%=@staff_password%>' /add /comment:'<%=@staff_comment.encode("Windows-31J")%>' /fullname:'<%=@staff_name.encode("Windows-31J")%>' /expires:never /passwordchg:no
