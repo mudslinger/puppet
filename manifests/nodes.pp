@@ -1,6 +1,6 @@
 
 
-node /^s1255\-pc.*/ {
+node /^s1255\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.4'
@@ -13,7 +13,7 @@ node /^s1255\-pc.*/ {
   }
 }
 
-node /^s1256\-pc.*/ {
+node /^s1256\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.20'
@@ -26,7 +26,7 @@ node /^s1256\-pc.*/ {
   }
 }
 
-node /^s1257\-pc.*/ {
+node /^s1257\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.36'
@@ -39,7 +39,7 @@ node /^s1257\-pc.*/ {
   }
 }
 
-node /^s1138\-pc.*/ {
+node /^s1138\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.52'
@@ -52,7 +52,7 @@ node /^s1138\-pc.*/ {
   }
 }
 
-node /^s1258\-pc.*/ {
+node /^s1258\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.68'
@@ -65,7 +65,7 @@ node /^s1258\-pc.*/ {
   }
 }
 
-node /^s7203\-pc.*/ {
+node /^s7203\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.84'
@@ -78,7 +78,7 @@ node /^s7203\-pc.*/ {
   }
 }
 
-node /^s1260\-pc.*/ {
+node /^s1260\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.100'
@@ -91,7 +91,7 @@ node /^s1260\-pc.*/ {
   }
 }
 
-node /^s1261\-pc.*/ {
+node /^s1261\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.132'
@@ -104,7 +104,7 @@ node /^s1261\-pc.*/ {
   }
 }
 
-node /^s1262\-pc.*/ {
+node /^s1262\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.164'
@@ -117,7 +117,7 @@ node /^s1262\-pc.*/ {
   }
 }
 
-node /^s1140\-pc.*/ {
+node /^s1140\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.64.196'
@@ -130,7 +130,7 @@ node /^s1140\-pc.*/ {
   }
 }
 
-node /^s1202\-pc.*/ {
+node /^s1202\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.4'
@@ -143,7 +143,7 @@ node /^s1202\-pc.*/ {
   }
 }
 
-node /^s1203\-pc.*/ {
+node /^s1203\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.20'
@@ -156,7 +156,7 @@ node /^s1203\-pc.*/ {
   }
 }
 
-node /^s1249\-pc.*/ {
+node /^s1249\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.36'
@@ -169,7 +169,7 @@ node /^s1249\-pc.*/ {
   }
 }
 
-node /^s1215\-pc.*/ {
+node /^s1215\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.52'
@@ -182,7 +182,7 @@ node /^s1215\-pc.*/ {
   }
 }
 
-node /^s1241\-pc.*/ {
+node /^s1241\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.68'
@@ -195,7 +195,7 @@ node /^s1241\-pc.*/ {
   }
 }
 
-node /^s1204\-pc.*/ {
+node /^s1204\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.84'
@@ -208,7 +208,7 @@ node /^s1204\-pc.*/ {
   }
 }
 
-node /^s1221\-pc.*/ {
+node /^s1221\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.100'
@@ -221,7 +221,7 @@ node /^s1221\-pc.*/ {
   }
 }
 
-node /^s1139\-pc.*/ {
+node /^s1139\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.65.164'
@@ -234,7 +234,7 @@ node /^s1139\-pc.*/ {
   }
 }
 
-node /^s1102\-pc.*/ {
+node /^s1102\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.4'
@@ -247,7 +247,7 @@ node /^s1102\-pc.*/ {
   }
 }
 
-node /^s1105\-pc.*/ {
+node /^s1105\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.36'
@@ -260,7 +260,7 @@ node /^s1105\-pc.*/ {
   }
 }
 
-node /^s1107\-pc.*/ {
+node /^s1107\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.68'
@@ -273,7 +273,7 @@ node /^s1107\-pc.*/ {
   }
 }
 
-node /^s1108\-pc.*/ {
+node /^s1108\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.100'
@@ -286,7 +286,7 @@ node /^s1108\-pc.*/ {
   }
 }
 
-node /^s1111\-pc.*/ {
+node /^s1111\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.132'
@@ -299,7 +299,7 @@ node /^s1111\-pc.*/ {
   }
 }
 
-node /^s1113\-pc.*/ {
+node /^s1113\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.164'
@@ -312,7 +312,7 @@ node /^s1113\-pc.*/ {
   }
 }
 
-node /^s1115\-pc.*/ {
+node /^s1115\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.196'
@@ -325,7 +325,7 @@ node /^s1115\-pc.*/ {
   }
 }
 
-node /^s1117\-pc.*/ {
+node /^s1117\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.66.228'
@@ -338,7 +338,7 @@ node /^s1117\-pc.*/ {
   }
 }
 
-node /^s1118\-pc.*/ {
+node /^s1118\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.4'
@@ -351,7 +351,7 @@ node /^s1118\-pc.*/ {
   }
 }
 
-node /^s1119\-pc.*/ {
+node /^s1119\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.36'
@@ -364,7 +364,7 @@ node /^s1119\-pc.*/ {
   }
 }
 
-node /^s1120\-pc.*/ {
+node /^s1120\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.68'
@@ -377,7 +377,7 @@ node /^s1120\-pc.*/ {
   }
 }
 
-node /^s1121\-pc.*/ {
+node /^s1121\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.100'
@@ -390,7 +390,7 @@ node /^s1121\-pc.*/ {
   }
 }
 
-node /^s1122\-pc.*/ {
+node /^s1122\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.132'
@@ -403,7 +403,7 @@ node /^s1122\-pc.*/ {
   }
 }
 
-node /^s1123\-pc.*/ {
+node /^s1123\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.164'
@@ -416,7 +416,7 @@ node /^s1123\-pc.*/ {
   }
 }
 
-node /^s1124\-pc.*/ {
+node /^s1124\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.196'
@@ -429,7 +429,7 @@ node /^s1124\-pc.*/ {
   }
 }
 
-node /^s1125\-pc.*/ {
+node /^s1125\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.67.228'
@@ -442,7 +442,7 @@ node /^s1125\-pc.*/ {
   }
 }
 
-node /^s1126\-pc.*/ {
+node /^s1126\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.4'
@@ -455,7 +455,7 @@ node /^s1126\-pc.*/ {
   }
 }
 
-node /^s1127\-pc.*/ {
+node /^s1127\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.36'
@@ -468,7 +468,7 @@ node /^s1127\-pc.*/ {
   }
 }
 
-node /^s1128\-pc.*/ {
+node /^s1128\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.68'
@@ -481,7 +481,7 @@ node /^s1128\-pc.*/ {
   }
 }
 
-node /^s1129\-pc.*/ {
+node /^s1129\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.100'
@@ -494,7 +494,7 @@ node /^s1129\-pc.*/ {
   }
 }
 
-node /^s1130\-pc.*/ {
+node /^s1130\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.132'
@@ -507,7 +507,7 @@ node /^s1130\-pc.*/ {
   }
 }
 
-node /^s1131\-pc.*/ {
+node /^s1131\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.164'
@@ -520,7 +520,7 @@ node /^s1131\-pc.*/ {
   }
 }
 
-node /^s1132\-pc.*/ {
+node /^s1132\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.196'
@@ -533,7 +533,7 @@ node /^s1132\-pc.*/ {
   }
 }
 
-node /^s1133\-pc.*/ {
+node /^s1133\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.68.228'
@@ -546,7 +546,7 @@ node /^s1133\-pc.*/ {
   }
 }
 
-node /^s1134\-pc.*/ {
+node /^s1134\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.4'
@@ -559,7 +559,7 @@ node /^s1134\-pc.*/ {
   }
 }
 
-node /^s1135\-pc.*/ {
+node /^s1135\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.36'
@@ -572,7 +572,7 @@ node /^s1135\-pc.*/ {
   }
 }
 
-node /^s1137\-pc.*/ {
+node /^s1137\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.68'
@@ -585,7 +585,7 @@ node /^s1137\-pc.*/ {
   }
 }
 
-node /^s1201\-pc.*/ {
+node /^s1201\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.100'
@@ -598,7 +598,7 @@ node /^s1201\-pc.*/ {
   }
 }
 
-node /^s1205\-pc.*/ {
+node /^s1205\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.132'
@@ -611,7 +611,7 @@ node /^s1205\-pc.*/ {
   }
 }
 
-node /^s1207\-pc.*/ {
+node /^s1207\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.164'
@@ -624,7 +624,7 @@ node /^s1207\-pc.*/ {
   }
 }
 
-node /^s1208\-pc.*/ {
+node /^s1208\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.196'
@@ -637,7 +637,7 @@ node /^s1208\-pc.*/ {
   }
 }
 
-node /^s1209\-pc.*/ {
+node /^s1209\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.69.228'
@@ -650,7 +650,7 @@ node /^s1209\-pc.*/ {
   }
 }
 
-node /^s1210\-pc.*/ {
+node /^s1210\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.4'
@@ -663,7 +663,7 @@ node /^s1210\-pc.*/ {
   }
 }
 
-node /^s1211\-pc.*/ {
+node /^s1211\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.36'
@@ -676,7 +676,7 @@ node /^s1211\-pc.*/ {
   }
 }
 
-node /^s1212\-pc.*/ {
+node /^s1212\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.68'
@@ -689,7 +689,7 @@ node /^s1212\-pc.*/ {
   }
 }
 
-node /^s1213\-pc.*/ {
+node /^s1213\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.100'
@@ -702,7 +702,7 @@ node /^s1213\-pc.*/ {
   }
 }
 
-node /^s1214\-pc.*/ {
+node /^s1214\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.132'
@@ -715,7 +715,7 @@ node /^s1214\-pc.*/ {
   }
 }
 
-node /^s1216\-pc.*/ {
+node /^s1216\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.164'
@@ -728,7 +728,7 @@ node /^s1216\-pc.*/ {
   }
 }
 
-node /^s1217\-pc.*/ {
+node /^s1217\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.196'
@@ -741,7 +741,7 @@ node /^s1217\-pc.*/ {
   }
 }
 
-node /^s1218\-pc.*/ {
+node /^s1218\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.70.228'
@@ -754,7 +754,7 @@ node /^s1218\-pc.*/ {
   }
 }
 
-node /^s1219\-pc.*/ {
+node /^s1219\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.4'
@@ -767,7 +767,7 @@ node /^s1219\-pc.*/ {
   }
 }
 
-node /^s1220\-pc.*/ {
+node /^s1220\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.36'
@@ -780,7 +780,7 @@ node /^s1220\-pc.*/ {
   }
 }
 
-node /^s1222\-pc.*/ {
+node /^s1222\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.68'
@@ -793,7 +793,7 @@ node /^s1222\-pc.*/ {
   }
 }
 
-node /^s1223\-pc.*/ {
+node /^s1223\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.100'
@@ -806,7 +806,7 @@ node /^s1223\-pc.*/ {
   }
 }
 
-node /^s4224\-pc.*/ {
+node /^s4224\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.132'
@@ -819,7 +819,7 @@ node /^s4224\-pc.*/ {
   }
 }
 
-node /^s1225\-pc.*/ {
+node /^s1225\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.164'
@@ -832,7 +832,7 @@ node /^s1225\-pc.*/ {
   }
 }
 
-node /^s1226\-pc.*/ {
+node /^s1226\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.196'
@@ -845,7 +845,7 @@ node /^s1226\-pc.*/ {
   }
 }
 
-node /^s1227\-pc.*/ {
+node /^s1227\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.71.228'
@@ -858,7 +858,7 @@ node /^s1227\-pc.*/ {
   }
 }
 
-node /^s1228\-pc.*/ {
+node /^s1228\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.4'
@@ -871,7 +871,7 @@ node /^s1228\-pc.*/ {
   }
 }
 
-node /^s1229\-pc.*/ {
+node /^s1229\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.36'
@@ -884,7 +884,7 @@ node /^s1229\-pc.*/ {
   }
 }
 
-node /^s1230\-pc.*/ {
+node /^s1230\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.68'
@@ -897,7 +897,7 @@ node /^s1230\-pc.*/ {
   }
 }
 
-node /^s1231\-pc.*/ {
+node /^s1231\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.100'
@@ -910,7 +910,7 @@ node /^s1231\-pc.*/ {
   }
 }
 
-node /^s1232\-pc.*/ {
+node /^s1232\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.132'
@@ -923,7 +923,7 @@ node /^s1232\-pc.*/ {
   }
 }
 
-node /^s1233\-pc.*/ {
+node /^s1233\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.164'
@@ -936,7 +936,7 @@ node /^s1233\-pc.*/ {
   }
 }
 
-node /^s1234\-pc.*/ {
+node /^s1234\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.196'
@@ -949,7 +949,7 @@ node /^s1234\-pc.*/ {
   }
 }
 
-node /^s1235\-pc.*/ {
+node /^s1235\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.72.228'
@@ -962,7 +962,7 @@ node /^s1235\-pc.*/ {
   }
 }
 
-node /^s1236\-pc.*/ {
+node /^s1236\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.4'
@@ -975,7 +975,7 @@ node /^s1236\-pc.*/ {
   }
 }
 
-node /^s1237\-pc.*/ {
+node /^s1237\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.36'
@@ -988,7 +988,7 @@ node /^s1237\-pc.*/ {
   }
 }
 
-node /^s1238\-pc.*/ {
+node /^s1238\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.68'
@@ -1001,7 +1001,7 @@ node /^s1238\-pc.*/ {
   }
 }
 
-node /^s1239\-pc.*/ {
+node /^s1239\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.100'
@@ -1014,7 +1014,7 @@ node /^s1239\-pc.*/ {
   }
 }
 
-node /^s1242\-pc.*/ {
+node /^s1242\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.132'
@@ -1027,7 +1027,7 @@ node /^s1242\-pc.*/ {
   }
 }
 
-node /^s1243\-pc.*/ {
+node /^s1243\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.164'
@@ -1040,7 +1040,7 @@ node /^s1243\-pc.*/ {
   }
 }
 
-node /^s1244\-pc.*/ {
+node /^s1244\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.196'
@@ -1053,7 +1053,7 @@ node /^s1244\-pc.*/ {
   }
 }
 
-node /^s1245\-pc.*/ {
+node /^s1245\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.73.228'
@@ -1066,7 +1066,7 @@ node /^s1245\-pc.*/ {
   }
 }
 
-node /^s1246\-pc.*/ {
+node /^s1246\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.4'
@@ -1079,7 +1079,7 @@ node /^s1246\-pc.*/ {
   }
 }
 
-node /^s1247\-pc.*/ {
+node /^s1247\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.36'
@@ -1092,7 +1092,7 @@ node /^s1247\-pc.*/ {
   }
 }
 
-node /^s1248\-pc.*/ {
+node /^s1248\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.68'
@@ -1105,7 +1105,7 @@ node /^s1248\-pc.*/ {
   }
 }
 
-node /^s1250\-pc.*/ {
+node /^s1250\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.100'
@@ -1118,7 +1118,7 @@ node /^s1250\-pc.*/ {
   }
 }
 
-node /^s1251\-pc.*/ {
+node /^s1251\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.132'
@@ -1131,7 +1131,7 @@ node /^s1251\-pc.*/ {
   }
 }
 
-node /^s1252\-pc.*/ {
+node /^s1252\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.164'
@@ -1144,7 +1144,7 @@ node /^s1252\-pc.*/ {
   }
 }
 
-node /^s1253\-pc.*/ {
+node /^s1253\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.196'
@@ -1157,7 +1157,7 @@ node /^s1253\-pc.*/ {
   }
 }
 
-node /^s1254\-pc.*/ {
+node /^s1254\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.74.228'
@@ -1170,7 +1170,7 @@ node /^s1254\-pc.*/ {
   }
 }
 
-node /^s7201\-pc.*/ {
+node /^s7201\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.4'
@@ -1183,7 +1183,7 @@ node /^s7201\-pc.*/ {
   }
 }
 
-node /^s7202\-pc.*/ {
+node /^s7202\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.4'
@@ -1196,7 +1196,7 @@ node /^s7202\-pc.*/ {
   }
 }
 
-node /^s1264\-pc.*/ {
+node /^s1264\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.36'
@@ -1209,7 +1209,7 @@ node /^s1264\-pc.*/ {
   }
 }
 
-node /^s1266\-pc.*/ {
+node /^s1266\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.68'
@@ -1222,7 +1222,7 @@ node /^s1266\-pc.*/ {
   }
 }
 
-node /^s1267\-pc.*/ {
+node /^s1267\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.100'
@@ -1235,7 +1235,7 @@ node /^s1267\-pc.*/ {
   }
 }
 
-node /^s1141\-pc.*/ {
+node /^s1141\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.132'
@@ -1248,7 +1248,7 @@ node /^s1141\-pc.*/ {
   }
 }
 
-node /^s1268\-pc.*/ {
+node /^s1268\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.164'
@@ -1261,7 +1261,7 @@ node /^s1268\-pc.*/ {
   }
 }
 
-node /^s1269\-pc.*/ {
+node /^s1269\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.75.196'
@@ -1274,7 +1274,7 @@ node /^s1269\-pc.*/ {
   }
 }
 
-node /^s1271\-pc.*/ {
+node /^s1271\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.4'
@@ -1287,7 +1287,7 @@ node /^s1271\-pc.*/ {
   }
 }
 
-node /^s1272\-pc.*/ {
+node /^s1272\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.36'
@@ -1300,7 +1300,7 @@ node /^s1272\-pc.*/ {
   }
 }
 
-node /^s1273\-pc.*/ {
+node /^s1273\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.68'
@@ -1313,7 +1313,7 @@ node /^s1273\-pc.*/ {
   }
 }
 
-node /^s1274\-pc.*/ {
+node /^s1274\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.100'
@@ -1326,7 +1326,7 @@ node /^s1274\-pc.*/ {
   }
 }
 
-node /^s1275\-pc.*/ {
+node /^s1275\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.132'
@@ -1339,7 +1339,7 @@ node /^s1275\-pc.*/ {
   }
 }
 
-node /^s1276\-pc.*/ {
+node /^s1276\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.164'
@@ -1352,7 +1352,7 @@ node /^s1276\-pc.*/ {
   }
 }
 
-node /^s1277\-pc.*/ {
+node /^s1277\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.196'
@@ -1365,7 +1365,7 @@ node /^s1277\-pc.*/ {
   }
 }
 
-node /^s1278\-pc.*/ {
+node /^s1278\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.76.228'
@@ -1378,7 +1378,7 @@ node /^s1278\-pc.*/ {
   }
 }
 
-node /^s1279\-pc.*/ {
+node /^s1279\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.4'
@@ -1391,7 +1391,7 @@ node /^s1279\-pc.*/ {
   }
 }
 
-node /^s1281\-pc.*/ {
+node /^s1281\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.36'
@@ -1404,7 +1404,7 @@ node /^s1281\-pc.*/ {
   }
 }
 
-node /^s1280\-pc.*/ {
+node /^s1280\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.68'
@@ -1417,7 +1417,7 @@ node /^s1280\-pc.*/ {
   }
 }
 
-node /^s1282\-pc.*/ {
+node /^s1282\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.100'
@@ -1430,7 +1430,7 @@ node /^s1282\-pc.*/ {
   }
 }
 
-node /^s1142\-pc.*/ {
+node /^s1142\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.132'
@@ -1443,7 +1443,7 @@ node /^s1142\-pc.*/ {
   }
 }
 
-node /^s1283\-pc.*/ {
+node /^s1283\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.164'
@@ -1456,7 +1456,7 @@ node /^s1283\-pc.*/ {
   }
 }
 
-node /^s1284\-pc.*/ {
+node /^s1284\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.196'
@@ -1469,7 +1469,7 @@ node /^s1284\-pc.*/ {
   }
 }
 
-node /^s7204\-pc.*/ {
+node /^s7204\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.77.228'
@@ -1482,7 +1482,7 @@ node /^s7204\-pc.*/ {
   }
 }
 
-node /^s1286\-pc.*/ {
+node /^s1286\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.4'
@@ -1495,7 +1495,7 @@ node /^s1286\-pc.*/ {
   }
 }
 
-node /^s1287\-pc.*/ {
+node /^s1287\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.36'
@@ -1508,7 +1508,7 @@ node /^s1287\-pc.*/ {
   }
 }
 
-node /^s1288\-pc.*/ {
+node /^s1288\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.68'
@@ -1521,7 +1521,7 @@ node /^s1288\-pc.*/ {
   }
 }
 
-node /^s1289\-pc.*/ {
+node /^s1289\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.100'
@@ -1534,7 +1534,7 @@ node /^s1289\-pc.*/ {
   }
 }
 
-node /^s1143\-pc.*/ {
+node /^s1143\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.132'
@@ -1547,7 +1547,7 @@ node /^s1143\-pc.*/ {
   }
 }
 
-node /^s1290\-pc.*/ {
+node /^s1290\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.164'
@@ -1560,7 +1560,7 @@ node /^s1290\-pc.*/ {
   }
 }
 
-node /^s1291\-pc.*/ {
+node /^s1291\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.196'
@@ -1573,7 +1573,7 @@ node /^s1291\-pc.*/ {
   }
 }
 
-node /^s6101\-pc.*/ {
+node /^s6101\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.78.228'
@@ -1586,7 +1586,7 @@ node /^s6101\-pc.*/ {
   }
 }
 
-node /^s1292\-pc.*/ {
+node /^s1292\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.4'
@@ -1599,7 +1599,7 @@ node /^s1292\-pc.*/ {
   }
 }
 
-node /^s1293\-pc.*/ {
+node /^s1293\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.36'
@@ -1612,7 +1612,7 @@ node /^s1293\-pc.*/ {
   }
 }
 
-node /^s1294\-pc.*/ {
+node /^s1294\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.68'
@@ -1625,7 +1625,7 @@ node /^s1294\-pc.*/ {
   }
 }
 
-node /^s1295\-pc.*/ {
+node /^s1295\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.100'
@@ -1638,7 +1638,7 @@ node /^s1295\-pc.*/ {
   }
 }
 
-node /^s1296\-pc.*/ {
+node /^s1296\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.132'
@@ -1651,7 +1651,7 @@ node /^s1296\-pc.*/ {
   }
 }
 
-node /^s1297\-pc.*/ {
+node /^s1297\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.164'
@@ -1664,7 +1664,7 @@ node /^s1297\-pc.*/ {
   }
 }
 
-node /^s6102\-pc.*/ {
+node /^s6102\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.196'
@@ -1677,7 +1677,7 @@ node /^s6102\-pc.*/ {
   }
 }
 
-node /^s1298\-pc.*/ {
+node /^s1298\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.79.228'
@@ -1690,7 +1690,7 @@ node /^s1298\-pc.*/ {
   }
 }
 
-node /^s1270\-pc.*/ {
+node /^s1270\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.80.4'
@@ -1703,7 +1703,7 @@ node /^s1270\-pc.*/ {
   }
 }
 
-node /^s1299\-pc.*/ {
+node /^s1299\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.80.68'
@@ -1716,7 +1716,7 @@ node /^s1299\-pc.*/ {
   }
 }
 
-node /^s1300\-pc.*/ {
+node /^s1300\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.80.100'
@@ -1729,7 +1729,7 @@ node /^s1300\-pc.*/ {
   }
 }
 
-node /^s1301\-pc.*/ {
+node /^s1301\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.80.132'
@@ -1742,7 +1742,7 @@ node /^s1301\-pc.*/ {
   }
 }
 
-node /^s1302\-pc.*/ {
+node /^s1302\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.80.164'
@@ -1755,7 +1755,7 @@ node /^s1302\-pc.*/ {
   }
 }
 
-node /^s1303\-pc.*/ {
+node /^s1303\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.80.228'
@@ -1768,7 +1768,7 @@ node /^s1303\-pc.*/ {
   }
 }
 
-node /^s1304\-pc.*/ {
+node /^s1304\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.4'
@@ -1781,7 +1781,7 @@ node /^s1304\-pc.*/ {
   }
 }
 
-node /^s6103\-pc.*/ {
+node /^s6103\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.36'
@@ -1794,7 +1794,7 @@ node /^s6103\-pc.*/ {
   }
 }
 
-node /^s6104\-pc.*/ {
+node /^s6104\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.68'
@@ -1807,7 +1807,7 @@ node /^s6104\-pc.*/ {
   }
 }
 
-node /^s6105\-pc.*/ {
+node /^s6105\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.100'
@@ -1820,7 +1820,7 @@ node /^s6105\-pc.*/ {
   }
 }
 
-node /^s1305\-pc.*/ {
+node /^s1305\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.132'
@@ -1833,7 +1833,7 @@ node /^s1305\-pc.*/ {
   }
 }
 
-node /^s1144\-pc.*/ {
+node /^s1144\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.164'
@@ -1846,7 +1846,7 @@ node /^s1144\-pc.*/ {
   }
 }
 
-node /^s1145\-pc.*/ {
+node /^s1145\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.196'
@@ -1859,7 +1859,7 @@ node /^s1145\-pc.*/ {
   }
 }
 
-node /^s1146\-pc.*/ {
+node /^s1146\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.81.228'
@@ -1872,7 +1872,7 @@ node /^s1146\-pc.*/ {
   }
 }
 
-node /^s1147\-pc.*/ {
+node /^s1147\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.82.4'
@@ -1885,7 +1885,7 @@ node /^s1147\-pc.*/ {
   }
 }
 
-node /^s1263\-pc.*/ {
+node /^s1263\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.128.4'
@@ -1898,7 +1898,7 @@ node /^s1263\-pc.*/ {
   }
 }
 
-node /^s5201\-pc.*/ {
+node /^s5201\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.128.132'
@@ -1911,7 +1911,7 @@ node /^s5201\-pc.*/ {
   }
 }
 
-node /^s5202\-pc.*/ {
+node /^s5202\-pc.*/ inherits default{
 
   class { "ricoh":
     printer_ip => '192.168.128.132'

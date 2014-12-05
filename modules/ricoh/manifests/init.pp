@@ -2,11 +2,10 @@
 #printer driver Install
 ########################
 class ricoh(
-  $printer_ip = "0.0.0.0",
-  $monopath = "$setupdir\176757",
-  $colorpath = "$setupdir\176758"
+  $printer_ip = "0.0.0.0"
 ) inherits setup{
-
+  $monopath = "$setupdir\176757"
+  $colorpath = "$setupdir\176758"
   file{ $monopath:
     ensure => present,
     source => "puppet:///files/176757",

@@ -4,28 +4,27 @@ class user-add(
 	$manager_id = "manager",
 	$manager_password = "manager"
 ){
-  user { $staff_id:
-    name => $staff_id,
-    ensure => present,
-    password => $manager_id,
-    groups => ["Power Users"],
-    home => "c:/users/$staff_id",
-    managehome => false
+
+  exec{ "user-add":
+    command => template('user-add/user-add.ps1.erb'),
+    provider => powershell,
+    logoutput => true
   }
-  user { $manager_id:
-    name => $manager_id,
-    ensure => present,
-    password => $manager_password,
-    groups => ["Administrators"],
-    home => "c:/users/$manager_id",
-    managehome => false
-  }
-  user { creator:
-    name => 'creator',
-    ensure => present,
-    password => 'P@ssw0rd',
-    groups => ["Administrators"],
-    home => "c:/users/creator",
-    managehome => false
-  }
+  # user { $staff_id:
+  #   name => $staff_id,
+  #   ensure => present,
+  #   password => $manager_id,
+  #   groups => ["HomeUsers"],
+  #   home => "c:/users/$staff_id",
+  #   managehome => true
+  # }
+  # user { $manager_id:
+  #   name => $manager_id,
+  #   ensure => present,
+  #   password => $manager_password,
+  #   groups => ["Administrators"],
+  #   home => "c:/users/$manager_id",
+  #   managehome => true
+  # }
+
 }
