@@ -11,7 +11,7 @@ class user-add2(
     provider => powershell,
     onlyif => [
     	"if((net user | Out-String).IndexOf('$staff_id') -lt 0){exit 0}elese{exit 1}"
-    ]
+    ],
     logoutput => true
   }
 
