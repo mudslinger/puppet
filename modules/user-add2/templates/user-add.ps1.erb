@@ -5,7 +5,7 @@ $ms932 = [system.text.encoding]::GetEncoding(932)
 
 
 $fullname = [system.text.encoding]::convert($utf8,ms932,$utf8.getBytes("<%=@staff_name%>"))
-
+$fullname = $ms932.GetString($fullname)
 $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
 
 $user = $computer.create("User","<%=@staff_id%>")
@@ -15,4 +15,3 @@ $user.FullName = $fullname
 $user.SetInfo()
 $user.UserFlags = 64 + 65536
 $user.SetInfo()
-chcp 932
