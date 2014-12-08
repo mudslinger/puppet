@@ -7,6 +7,7 @@ node default {
   include msao
   include servicedeskplus
   include eset
+  include vnc
 
   if $hostname =~ /^s([0-9]{4})\-pc.*/ {
     class { 'winntp':
@@ -15,7 +16,7 @@ node default {
     include uac
     include opt-feature
     include office
-    include vnc
+    
     include adobe-reader
     include flash-plugin
     if $operatingsystem == 'windows' {
@@ -27,7 +28,7 @@ node default {
 }
 
 node /^install\-test.*/ inherits default{
-  include install-carbon
+  #include install-carbon
   class { 'user-add2':
     staff_id => 's9998-staff',
     staff_password => 'yam',
