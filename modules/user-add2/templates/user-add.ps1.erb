@@ -5,4 +5,5 @@ $test = $computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.N
 if($test -eq $null){
 net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no
 }
+net localgroup "<%=u['group']%>" "<%=u['id']%>" /add
 <% end %>
