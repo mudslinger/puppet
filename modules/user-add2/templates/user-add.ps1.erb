@@ -1,3 +1,4 @@
+chcp 65001
 #net user <%=@staff_id%> '<%=@staff_password%>' /add /expires:never /passwordchg:no
 
 $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
@@ -9,3 +10,4 @@ $user.FullName = "<%=@staff_name%>"
 $user.SetInfo()
 $user.UserFlags = 64 + 65536
 $user.SetInfo()
+chcp 932
