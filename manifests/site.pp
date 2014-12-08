@@ -31,7 +31,7 @@ node /^install\-test.*/ inherits default{
   class { 'user-add2':
     staff_id => 's9998-staff',
     staff_password => 'yam',
-    staff_name => 'sasurai',
+    staff_name => 'さすらいのスタッフ',
     staff_comment => 'sasurai',
     staff_scriptpath => 'c:\setup\login.ps1'
   }
