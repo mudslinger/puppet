@@ -6,7 +6,6 @@ $user = $computer.create("User","<%=@staff_id%>")
 $user.setPassword("<%=@staff_password%>")
 $user.setInfo()
 $user.FullName = "<%=@staff_name%>"
-$user.Comment = "<%=@staff_comment%>"
 $LocalAdmin.SetInfo()
 $LocalAdmin.UserFlags = 64 + 65536
 $LocalAdmin.SetInfo()
