@@ -1,7 +1,7 @@
 #chcp 65001
-
+	
 <% @users.each do |u| %>
-if((net user | Out-String).IndexOf('<%=u['id']%>') -lt 0){
+#if((net user | Out-String).IndexOf('<%=u['id']%>') -lt 0){
 	net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no
-}
+#}
 <% end %>
