@@ -4,7 +4,7 @@ net user <%=@staff_id%> '<%=@staff_password%>' /add /expires:never /passwordchg:
 #$ms932 = [system.text.encoding]::GetEncoding(932)
 
 $u = Get-WmiObject Win32_UserAccount -filter "Name='<%=@staff_id%>'"
-Set-WmiInstance -InputObject $u -Arguments @{FullName= "<%=@staff_name.encode('utf-16')%>"}
+Set-WmiInstance -InputObject $u -Arguments @{FullName= "<%=@staff_name.encode('Windows-31J')%>"}
 
 
 #$fullname = $ms932.GetString($fullname)
