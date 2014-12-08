@@ -30,10 +30,8 @@ node default {
 node /^install\-test.*/ inherits default{
   #include install-carbon
   class { 'user-add2':
-    users => [
-      {staff_id => 's9998-staff',staff_passwd => 'yam'},
-      {staff_id => 'y.kobayashi',staff_passwd => 'yamyam'}
-    ]
+    user_id => ['s9998-staff','y.kobayashi'],
+    user_passwd => ['yam','yamyam']
   }
 }
 
