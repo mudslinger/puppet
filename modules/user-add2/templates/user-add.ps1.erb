@@ -1,6 +1,8 @@
+$computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
 
 <% @users.each do |u| %>
-
-	net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no
-
+  $user = $computer.create("User","<%=u['id']%>")
+  $user.setPassword("<%=u['passwd']%>")
+  $user.UserFlags = 64 + 65536
+  $user.SetInfo()
 <% end %>
