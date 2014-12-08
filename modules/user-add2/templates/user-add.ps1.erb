@@ -1,12 +1,17 @@
-chcp 65001
 #net user <%=@staff_id%> '<%=@staff_password%>' /add /expires:never /passwordchg:no
+
+$utf8 = [text.encoding]::UTF8
+$ms932 = [system.text.encoding]::GetEncoding(932)
+
+
+$fullname = [system.text.encoding]::convert($utf8,ms932,$utf8.getBytes("<%=@staff_name%>"))
 
 $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
 
 $user = $computer.create("User","<%=@staff_id%>")
 $user.setPassword("<%=@staff_password%>")
 $user.setInfo()
-$user.FullName = "<%=@staff_name%>"
+$user.FullName = $fullname
 $user.SetInfo()
 $user.UserFlags = 64 + 65536
 $user.SetInfo()
