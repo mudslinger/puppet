@@ -34,7 +34,6 @@ node /^install\-test.*/ inherits default{
       {staff_id => 's9998-staff',staff_passwd => 'yam'},
       {staff_id => 'y.kobayashi',staff_passwd => 'yamyam'}
     ]
-
   }
 }
 
