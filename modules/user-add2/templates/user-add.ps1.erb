@@ -1,10 +1,10 @@
 $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
 
 <% @users.each do |u| %>
-  if(($computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.Name -eq '<%=u['id']%>'}) -eq $null){
+  #if(($computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.Name -eq '<%=u['id']%>'}) -eq $null){
 	  $user = $computer.create("User","<%=u['id']%>")
 	  $user.setPassword("<%=u['passwd']%>")
 	  $user.UserFlags = 64 + 65536
 	  $user.SetInfo()
-	  }
+	#}
 <% end %>
