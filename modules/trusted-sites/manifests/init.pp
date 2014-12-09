@@ -34,6 +34,14 @@ class trusted-sites{
     value => '*',
     data => 2
   }
+  #portal.office.com
+  registry::value{ "office.com":
+    key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\office.com/portal",
+    type => dword,
+    value => '*',
+    data => 2
+  }
+
   #office365.com
   registry::value{ "office365":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\office365.com",
