@@ -10,7 +10,7 @@ class power-management inherits setup{
   exec{ "import-powercfg":
     command => "powercfg -IMPORT $powpath efb22917-6133-4c6e-b202-4923d080bba1",
     provider => powershell,
-    onlyif => "if((powercfg -l | out-string).indexof('efb22917-6133')) -gt 0){exit 1}else{exit 0}"
+    onlyif => "if((powercfg -l | out-string).indexof('efb22917-6133')) -gt 0){exit 1}else{exit 0}",
     require => File[$powpath]
   }
   exec{ "activate-powercfg":
