@@ -3,52 +3,61 @@ class trusted-sites{
   registry::value{ "Security_HKLM_only":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings",
     type => dword,
+    value => "Security_HKLM_only",
     data => 1
   }
   #elis
-  registry::value{ "*":
+  registry::value{ "elis":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\fujipan.co.jp",
     type => dword,
+    value => '*',
     data => 2
   }
   #winboard
-  registry::value{ "*":
+  registry::value{ "winboard":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\winboard.jp\ec9",
     type => dword,
+    value => '*',
     data => 2
   }
   #lync
-  registry::value{ "*":
+  registry::value{ "lync":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\lync.com",
     type => dword,
+    value => '*',
     data => 2
   }
   #office365.com
-  registry::value{ "*":
+  registry::value{ "office365":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\office365.com",
     type => dword,
+    value => '*',
     data => 2
   }
-  registry::value{ "*":
+  registry::value{ "office365-2":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\office365.com\outlook",
     type => dword,
+    value => '*',
     data => 2
   }
   #microsoftonline.com
-  registry::value{ "*":
+  registry::value{ "msonline":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftonline.com",
     type => dword,
+    value => '*',
     data => 2
   }
-  registry::value{ "*":
+  registry::value{ "msonline-2":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftonline.com\login",
     type => dword,
+    value => '*',
     data => 2
   }
   #yamaokaya1.sharepoint.com
-  registry::value{ "*":
+  registry::value{ "spo":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\sharepoint.com\yamaokaya1",
     type => dword,
+    value => '*',
     data => 2
   }
 
