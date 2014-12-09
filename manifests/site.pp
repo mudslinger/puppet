@@ -23,6 +23,7 @@ node default {
       if $operatingsystemrelease == '8.1' {
         include remove-appxes
         include trusted-sites
+        include misc-registry
       }
     }
   }

@@ -7,7 +7,7 @@ Get-AppxPackage -Name 'E046963F.LenovoCompanion' | Remove-AppxPackage
 Get-AppxPackage -Name 'Evernote.Evernote' | Remove-AppxPackage
 Get-AppxPackage -Name 'LenovoCorporation.LenovoSettings' | Remove-AppxPackage
 Get-AppxPackage -Name 'Microsoft.SkypeApp' | Remove-AppxPackage
-Get-AppxPackage -Name 'microsoft.windowscommunicationsapps' | Remove-AppxPackage
+#Get-AppxPackage -Name 'microsoft.windowscommunicationsapps' | Remove-AppxPackage
 Get-AppxPackage -Name 'Microsoft.ZuneVideo' | Remove-AppxPackage
 Get-AppxPackage -Name 'Microsoft.ZuneMusic' | Remove-AppxPackage
 Get-AppxPackage -Name 'Microsoft.BingHealthAndFitness' | Remove-AppxPackage
