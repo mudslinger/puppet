@@ -36,6 +36,7 @@ node /^install\-test.*/ inherits default{
     ]
   }
   include trusted-sites
+  include power-management
 }
 
 #import 'nodes.pp'
