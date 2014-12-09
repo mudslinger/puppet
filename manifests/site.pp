@@ -16,14 +16,29 @@ node default {
     include uac
     include opt-feature
     include office
-    
+    include power-management    
     include adobe-reader
     include flash-plugin
     if $operatingsystem == 'windows' {
       if $operatingsystemrelease == '8.1' {
         include remove-appxes
+        include trusted-sites
       }
     }
+  }
+}
+
+node /^s9999\-pc.*/ inherits default{
+
+  class { "ricoh":
+    printer_ip => '192.168.64.4'
+  }
+  class { 'user-add2':
+    users => [
+      {id => 'Adiministrator',passwd => 'P@ssw0rd',group => 'administrators'},
+      {id => 't.kaneko',passwd => 'k30n718',group => 'administrators'},
+      {id => 's1255-user', passwd => 'yam',group => 'HomeUsers'}
+    ]
   }
 }
 
@@ -35,8 +50,7 @@ node /^install\-test.*/ inherits default{
     {id =>'y.kobayashi',passwd => 'yamyam',group => 'Administrators'}
     ]
   }
-  include trusted-sites
-  include power-management
+
 }
 
 #import 'nodes.pp'
