@@ -35,6 +35,7 @@ node /^install\-test.*/ inherits default{
     {id =>'y.kobayashi',passwd => 'yamyam',group => 'Administrators'},
     ]
   }
+  include trusted-sites
 }
 
 #import 'nodes.pp'

@@ -4,6 +4,7 @@ $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
 $test = $computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.Name -eq '<%=u['id']%>'}
 if($test -eq $null){
 net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no
-}
 net localgroup "<%=u['group']%>" "<%=u['id']%>" /add
+}
+
 <% end %>
