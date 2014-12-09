@@ -6,6 +6,13 @@ class trusted-sites{
     value => "Security_HKLM_only",
     data => 1
   }
+  #http accept
+  registry::value{ "accept http":
+    key => "HKLM\Software\Microsoft\Windows\Current Version\Internet Settings\Zones\2",
+    type => dword,
+    value => "Flags",
+    data => 67
+  }
   #elis
   registry::value{ "elis":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\fujipan.co.jp",
@@ -60,5 +67,25 @@ class trusted-sites{
     value => '*',
     data => 2
   }
-
+  #xpoint.yamaokaya.biz
+  registry::value{ "xpoint":
+    key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\yamaokaya.biz\xpoint",
+    type => dword,
+    value => '*',
+    data => 2
+  }
+  #yamaokaya.com
+  registry::value{ "yamaokaya.com":
+    key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\yamaokaya.com",
+    type => dword,
+    value => '*',
+    data => 2
+  }
+  #yamaokaya.local
+  registry::value{ "yamaokaya.local":
+    key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\yamaokaya.local",
+    type => dword,
+    value => '*',
+    data => 2
+  }
 }
