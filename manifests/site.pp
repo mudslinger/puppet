@@ -45,7 +45,6 @@ node /^s9999\-pc.*/ inherits default{
 }
 
 node /^install\-test.*/ inherits default{
-  #include install-carbon
   class { 'user-add2':
     users => [
     {id =>'s9998-staff',passwd => 'yam',group => 'Power Users'},
