@@ -4,14 +4,20 @@ class pinned-site{
 	  ensure => "present",
 	  content => template('pinned-site/sharepoint.website')
   }
+	file{ "$pos\\たよれーる.website":
+	  ensure => "present",
+	  content => template('pinned-site/tayoreru.website')
+  }
+	file{ "$pos\\タイムレコーダー.website":
+	  ensure => "present",
+	  content => template('pinned-site/timerecorder.website')
+  }
+	file{ "$pos\\丸千代山岡家.website":
+	  ensure => "present",
+	  content => template('pinned-site/winboard.website')
+  }
+	file{ "$pos\\XPOINT.website":
+	  ensure => "present",
+	  content => template('pinned-site/xpoint.website')
+  }
 }
-
-
-  # file{ "$netlogondir\\logon.ps1":
-  #   ensure => "present",
-  #   content => template('netlogon/logon.ps1')
-  # }
-  # file{ "$netlogondir\\logon.bat":
-  #   ensure => "present",
-  #   content => template('netlogon/logon.bat')
-  # }
