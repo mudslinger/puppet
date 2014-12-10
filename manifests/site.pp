@@ -8,7 +8,7 @@ node default {
   include servicedeskplus
   include eset
   include vnc
-
+  include netlogon
   if $hostname =~ /^s([0-9]{4})\-pc.*/ {
     class { 'winntp':
       ntp_server => '192.168.11.1'
