@@ -14,13 +14,24 @@ class misc-registry{
   registry::value { "Start Page":
     key => "HKLM\Software\Microsoft\Internet Explorer\Main",
     type => string,
-    data => "http://ec9.winboard.jp"
+    data => "http://ec9.winboard.jp/yamaokaya/index.do"
   }
   registry::value { "Secondary Start Pages":
     key => "HKLM\Software\Microsoft\Internet Explorer\Main",
     type => array,
     data => ["https://yamaokaya1.sharepoint.com","https://www.google.co.jp"]
   }
+  registry::value { "Default_Page_URL":
+    key => "HKLM\Software\Microsoft\Internet Explorer\Main",
+    type => string,
+    data => "http://ec9.winboard.jp/yamaokaya/index.do"
+  }
+  registry::value { "Default_Secondary_Page_URL":
+    key => "HKLM\Software\Microsoft\Internet Explorer\Main",
+    type => array,
+    data => ["https://yamaokaya1.sharepoint.com","https://www.google.co.jp"]
+  }
+
   registry::value { "Search Page":
     key => "HKLM\Software\Microsoft\Internet Explorer\Main",
     type => string,
@@ -32,7 +43,12 @@ class misc-registry{
     data => "https://www.google.co.jp/ie"
   }
   registry::value { "SearchURL":
-    key => "HKLM\Software\Microsoft\Internet Explorer\SearchURL",
+    key => "HKLM\Software\Microsoft\Internet Explorer\Main",
+    type => string,
+    data => "https://www.google.co.jp/search?q=%s"
+  }
+  registry::value { "Default_Search_URL":
+    key => "HKLM\Software\Microsoft\Internet Explorer\Main",
     type => string,
     data => "https://www.google.co.jp/search?q=%s"
   }
