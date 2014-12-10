@@ -17,5 +17,5 @@ class netlogon($netlogondir = "c:\\setup\netlogon") inherits setup{
   	provider => powershell,
   	onlyif => "if(Get-SmbShare -Name NETLOGON){exit 1}else{exit 0}",
   	logoutput => true,
-  	require => File["$netlogondir]
+  	require => File[$netlogondir]
   }
