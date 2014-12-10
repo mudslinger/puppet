@@ -19,3 +19,4 @@ class netlogon($netlogondir = "c:\\setup\netlogon") inherits setup{
   	logoutput => true,
   	require => File[$netlogondir]
   }
+}
