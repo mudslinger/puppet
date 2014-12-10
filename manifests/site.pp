@@ -10,7 +10,7 @@ node default {
   include vnc
   include netlogon
   include pinned-site
-  
+
   if $hostname =~ /^s([0-9]{4})\-pc.*/ {
     class { 'winntp':
       ntp_server => '192.168.11.1'
@@ -27,7 +27,6 @@ node default {
         include remove-appxes
         include trusted-sites
         include misc-registry
-
       }
     }
   }

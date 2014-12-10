@@ -30,3 +30,15 @@ Get-AppxProvisionedPackage -online | where DisplayName -eq Microsoft.SkypeApp | 
 Get-AppxProvisionedPackage -online | where DisplayName -eq Microsoft.XboxLIVEGames | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -online | where DisplayName -eq Microsoft.ZuneMusic | Remove-AppxProvisionedPackage -Online
 Get-AppxProvisionedPackage -online | where DisplayName -eq Microsoft.ZuneVideo | Remove-AppxProvisionedPackage -Online
+
+Get-AppxProvisionedPackage -online | where DisplayName -eq AMZNMobileLLC.KindleforWindows8 | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq B6AACE30.MyTimeLine | Remove-AppxProvisionedPackage -Online
+
+Get-AppxProvisionedPackage -online | where DisplayName -eq CyberLinkCorp.th.LenovoPhotoEditor | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq CyberLinkCorp.th.LenovoVideoEditor | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq E046963F.LenovoCompanion | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq Evernote.Evernote | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq LenovoCorporation.LenovoSettings | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq PlanetaRedSL.RedKaraokeforLenovo | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq SymantecCorporation.NortonStudio | Remove-AppxProvisionedPackage -Online
+Get-AppxProvisionedPackage -online | where DisplayName -eq Weather.TheWeatherChannelforLenovo | Remove-AppxProvisionedPackage -Online
