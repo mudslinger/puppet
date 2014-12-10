@@ -1,4 +1,4 @@
-class netlogon($netlogondir = "c:\\setup\netlogon") inherits setup{
+class netlogon($netlogondir = "c:\\setup\\netlogon") inherits setup{
   file{ $netlogondir:
     ensure => "directory"
     #source_permissions => ignore,
