@@ -15,7 +15,7 @@ class netlogon($netlogondir = "c:\\setup\netlogon") inherits setup{
   exec { "share-netlogon":
   	command => "New-SmbShare -Name NETLOGON -Path '$netlogondir'",
   	provider => powershell,
-  	onlyif => "if(Get-SmbShare -Name NETLOGON){exit 1}else{exit 0}"
+  	onlyif => "if(Get-SmbShare -Name NETLOGON){exit 1}else{exit 0}",
   	logoutput => true,
   	require => [File["$netlogondir\\logon.ps1"],File["$netlogondir\\logon.bat"]]
   }
