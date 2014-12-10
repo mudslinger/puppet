@@ -5,7 +5,6 @@ class misc-registry{
     type => dword,
     data => 1
   }
-  #互換表示
   registry::value { "www3.fujipan.co.jp"
     key => "HKLM\Software\Policies\Microsoft\Internet Explorer\BrowserEmulation\PolicyList",
     type => string,
