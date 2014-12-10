@@ -13,14 +13,15 @@ node default {
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
-    include uac
     include opt-feature
     include office
-    include power-management    
+ 
     include adobe-reader
     include flash-plugin
     if $operatingsystem == 'windows' {
       if $operatingsystemrelease == '8.1' {
+        include power-management   
+        include uac
         include remove-appxes
         include trusted-sites
         include misc-registry
