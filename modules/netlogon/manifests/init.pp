@@ -12,6 +12,10 @@ class netlogon($netlogondir = "c:\\setup\\netlogon") inherits setup{
     ensure => "present",
     content => template('netlogon/logon.bat')
   }
+  file{ "$netlogondir\\first.hta":
+    ensure => "present",
+    content => template('netlogon/first.hta')
+  }
   exec { "share-netlogon":
   	command => "New-SmbShare -Name NETLOGON -Path '$netlogondir'",
   	provider => powershell,
