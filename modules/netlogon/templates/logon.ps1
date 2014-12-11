@@ -11,8 +11,8 @@ $doc = [Environment]::GetFolderPath('MyDocuments')
 $download = [Environment]::GetFolderPath('UserProfile') + "\downloads"
 $links = [Environment]::GetFolderPath('UserProfile') + "\Links"
 $pathes = @(`
-  @($doc,"$links\ドキュメント・lnk"),`
-  @($download,"$links\ダウンロード・lnk")`
+  @($doc,"$links\ドキュメント.lnk"),`
+  @($download,"$links\ダウンロード.lnk")`
   )
 
 $pathes | ForEach-Object {
@@ -40,19 +40,20 @@ $pathes | ForEach-Object {
   if($verb){$verb.doIt()}
 }
 
+$exp = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
+$edge = "HKCU:\Software\Policies\Microsoft\Windows\EdgeUI"
+
 #show userProf onto their desktop
-$path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel"
-if(-not(Test-Path $path)){
-    New-ItemProperty  $path `
+if(-not(Test-Path "$exp\HideDesktopIcons\NewStartPanel")){
+    New-Item -Path "$exp\HideDesktopIcons\NewStartPanel" -Force
+    New-ItemProperty  "$exp\HideDesktopIcons\NewStartPanel" `
       -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -PropertyType Dword -Value 0
 }else{
-    Set-ItemProperty $path `
+    Set-ItemProperty "$exp\HideDesktopIcons\NewStartPanel" `
       -Name "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" -Value 0
 }
 
 #アプリビューをカテゴリー順に並べ替えたた時に、デスクトップアプリを先頭に表示する
-$exp = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
-$edge = "HKCU:\Software\Policies\Microsoft\Windows\EdgeUI"
 if(-not(Test-Path "$exp\StartPage")){
     New-ItemProperty  "$exp\StartPage" `
       -Name "DesktopFirst" -PropertyType Dword -Value 1
