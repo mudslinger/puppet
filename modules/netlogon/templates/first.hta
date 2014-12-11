@@ -181,7 +181,6 @@
 	<script type="text/javascript">
 		$('button#rungroove').click(function(){
 			var nw = new ActiveXObject("WScript.Network");
-			alert(nw.UserName.replace('-',''))
 			if(guids[nw.UserName.replace('-','')]){
 				guid = guids[nw.UserName.replace('-','')].replace('-',"_45")
 				window.open(prefix + suffix);

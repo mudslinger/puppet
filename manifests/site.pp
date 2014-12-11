@@ -41,7 +41,7 @@ node /^s9999\-pc.*/ inherits default{
     users => [
       {id => 'Adiministrator',passwd => 'P@ssw0rd',group => 'administrators'},
       {id => 't.kaneko',passwd => 'k30n718',group => 'administrators'},
-      {id => 'staff-1255', passwd => ''}
+      {id => 'staff-1255', passwd => '',group => 'HomeUsers'}
     ]
   }
 }
