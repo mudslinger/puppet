@@ -1,5 +1,5 @@
 class pinned-site{
-  $pos = "c:\\ProgramData\\Microsoft\\Windows\\Start Menu"
+  $pos = "c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"
 	file{ "$pos\\山岡家ポータル.website":
 	  ensure => "present",
 	  content => template('pinned-site/sharepoint.website')

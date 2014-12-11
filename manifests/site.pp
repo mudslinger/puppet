@@ -11,7 +11,7 @@ node default {
   include netlogon
   include pinned-site
 
-  if $hostname =~ /^s([0-9]{4})\-pc.*/ {
+  if $hostname =~ /^s([0-9]{4})\-tab.*/ {
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
