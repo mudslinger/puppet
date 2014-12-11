@@ -41,7 +41,7 @@ $pathes | ForEach-Object {
 }
 
 $exp = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
-$edge = "HKCU:\Software\Policies\Microsoft\Windows\EdgeUI"
+$win = "HKCU:\Software\Policies\Microsoft\Windows"
 
 #show userProf onto their desktop
 if(-not(Test-Path "$exp\HideDesktopIcons\NewStartPanel")){
@@ -80,3 +80,10 @@ if(-not(Test-Path "$exp\Accent")){
       -Name "MotionAccentId_v1.00" -Value 219
 }
 
+#画面に出てくる矢印のガイドを出なくする
+if(-not(Test-Path "$win\EdgeUI")){
+    New-Item $win -Name "EdgeUI" -Force
+    New-ItemProperty  "$win\EdgeUI" -Name "DisableHelpSticker" -PropertyType Dword -Value 1
+}else{
+    Set-ItemProperty "$win\EdgeUI" -Name "DisableHelpSticker" -Value 1
+}
