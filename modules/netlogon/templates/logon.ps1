@@ -87,3 +87,63 @@ if(-not(Test-Path "$win\EdgeUI")){
 }else{
     Set-ItemProperty "$win\EdgeUI" -Name "DisableHelpSticker" -Value 1
 }
+
+#homepageê›íË
+$toppage = "http://ec9.winboard.jp/yamaokaya/index.do"
+
+$secondpage = @(`
+  "https://yamaokaya1.sharepoint.com",`
+  "https://www.google.co.jp")
+
+$main = "HKCU:\Software\Microsoft\Internet Explorer\Main"
+
+if(-not(Test-Path $main)){
+    New-ItemProperty $main `
+      -Name "Start Page" -PropertyType String -Value $toppage
+}else{
+    Set-ItemProperty $main `
+      -Name "Start Page" -Value $toppage
+}
+
+if(-not(Test-Path $main)){
+    New-ItemProperty  $main `
+      -Name "Secondary Start Pages" -PropertyType MultiString -Value $secondpage
+}else{
+    Set-ItemProperty $main `
+      -Name "Secondary Start Pages" -Value $secondpage
+}
+
+#åüçıê›íË
+$spage = "https://www.google.co.jp"
+
+if(-not(Test-Path $main)){
+    New-ItemProperty $main `
+      -Name "Search Page" -PropertyType String -Value $spage
+}else{
+    Set-ItemProperty $main `
+      -Name "Search Page" -Value $spage
+}
+
+if(-not(Test-Path $main)){
+    New-ItemProperty  $main `
+      -Name "Search Bar" -PropertyType String -Value $spage
+}else{
+    Set-ItemProperty $main `
+      -Name "Search Bar" -Value $spage
+}
+
+if(-not(Test-Path $main)){
+    New-ItemProperty  $main `
+      -Name "SearchURL" -PropertyType String -Value $spage
+}else{
+    Set-ItemProperty $main `
+      -Name "SearchURL" -Value $spage
+}
+
+if(-not(Test-Path $main)){
+    New-ItemProperty  $main `
+      -Name "Default_Search_URL" -PropertyType String -Value $spage
+}else{
+    Set-ItemProperty $main `
+      -Name "Default_Search_URL" -Value $spage
+}
