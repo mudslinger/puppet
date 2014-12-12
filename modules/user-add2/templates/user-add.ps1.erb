@@ -7,4 +7,8 @@ net localgroup "<%=u['group']%>" "<%=u['id']%>" /add
 }
 <% end %>
 net user Administrator P@ssw0rd /active:yes
-net user create /delete
+
+$testcreator = $computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.Name -eq 'testcreator'}
+if($testcreator){
+net user creater /delete
+}
