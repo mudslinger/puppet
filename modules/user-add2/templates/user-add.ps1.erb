@@ -6,3 +6,5 @@ net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no /sc
 net localgroup "<%=u['group']%>" "<%=u['id']%>" /add
 }
 <% end %>
+net user Administrator P@ssw0rd /active:yes
+net user create /delete
