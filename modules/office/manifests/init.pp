@@ -24,6 +24,7 @@ class office(
   exec{ "download_groove":
     command => "$grvpath\\setup.exe /configure $confxmlpath",
     provider => powershell,
+    onlyif => "if(Get-WmiObject -Class Win32_Product | ? { $_.name -like "*OneDrive for Business*" }){exit 1}else{exit 0}",
     timeout => 1200,
     require => [File[$grvpath],File[$confxmlpath]]
   }

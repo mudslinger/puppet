@@ -81,15 +81,15 @@ if(-not(Test-Path "$exp\Accent")){
 }
 
 #画面に出てくる矢印のガイドを出なくする
-if(-not(Test-Path "$win\EdgeUI")){
-    New-Item $win -Name "EdgeUI" -Force
-    New-ItemProperty  "$win\EdgeUI" -Name "DisableHelpSticker" -PropertyType Dword -Value 1
-}else{
-    Set-ItemProperty "$win\EdgeUI" -Name "DisableHelpSticker" -Value 1
-}
+#if(-not(Test-Path "$win\EdgeUI")){
+#    New-Item $win -Name "EdgeUI" -Force
+#    New-ItemProperty  "$win\EdgeUI" -Name "DisableHelpSticker" -PropertyType Dword -Value 1
+#}else{
+#    Set-ItemProperty "$win\EdgeUI" -Name "DisableHelpSticker" -Value 1
+#}
 
 #初期設定ウィザードをデスクトップにコピー
-$htapath = "c:\setup\first.hta"
+$htapath = "c:\setup\netlogon\first.hta"
 if(test-path $htapath){
     $dest = [environment]::getfolderpath("Desktop") + "\最初に開いてください.hta"
     if(-not(test-path $dest)){
