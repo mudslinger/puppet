@@ -88,6 +88,15 @@ if(-not(Test-Path "$win\EdgeUI")){
     Set-ItemProperty "$win\EdgeUI" -Name "DisableHelpSticker" -Value 1
 }
 
+#初期設定ウィザードをデスクトップにコピー
+$htapath = "c:\setup\first.hta"
+if(test-path $htapath){
+    $dest = [environment]::getfolderpath("Desktop") + "\最初に開いてください.hta"
+    if(-not(test-path $dest)){
+        Copy-Item $htapath $dest
+    }
+}
+
 #homepage設定
 $toppage = "http://ec9.winboard.jp/yamaokaya/index.do"
 

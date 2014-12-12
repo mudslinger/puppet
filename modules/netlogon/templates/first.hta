@@ -3,17 +3,65 @@
   <head>
   	<meta charset='utf-8' />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<h1>フォルダ同期をやってね</h1>
-		<p>
-			<button id="rungroove">RunGroove</button> 
-		</p>
+		<div class="container">
+			<h1>
+				店舗用タブレットの初期設定
+				<small>山岡家 店舗用タブレットの初期設定ウィザードです。必ず順番通りに実行してください。</small>
+			</h1>
+			<div class="row">
+				<h3>1.OneDrive For Businessを使ってクラウドとPCのファイル同期の設定を行います。</h3>
+				<p>
+					<button class="btn" id="rungroove">このボタンを押して設定してください。</button> 
+				</p>
+			</div>
+			<div class="row">
+				<h3>2.次にドキュメントのプロパティを開き、場所を変更します。</h3>
+				<p>
+					「場所」タブに移動してください。
+					新しい場所がクリップボートに入っていますので、枠内に貼り付け、「移動」ボタンをおしてください。
+				</p>
+				<p>
+					<button class="btn openProps" data-folder="Documents">
+						このボタンを押すとプロパティが開きます。
+					</button>
+				</p>
+				<h3>3.同じようにミュージック・ピクチャ・お気に入りを設定してください。</h3>
+				<p>
+					開いたら「場所」タブに移動してください。
+					新しい場所がクリップボートに入っていますので、枠内に貼り付け、「移動」ボタンをおしてください。	
+				</p>
+				<p>
+					<button class="btn openProps" data-folder="Favorites">
+						お気に入り
+					</button>
+					<button class="btn openProps" data-folder="Pictures">
+						ピクチャ
+					</button>
+					<button class="btn openProps" data-folder="Music">
+						ミュージック
+					</button>
+				</p>
+				<h3>4.最後にデスクトップを移動します。</h3>
+				<p>
+					開いたら「場所」タブに移動してください。
+					新しい場所がクリップボートに入っていますので、枠内に貼り付け、「移動」ボタンをおしてください。	
+				</p>
+					<button class="btn openProps" data-folder="Desktop">
+						デスクトップ
+					</bu
+				<p>
+			</div>
+		</div>
 	</body>
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
 	<script>
-	var guids = {
+	var shop_guids = {
 		staff1102: "e1d4343c-b8f3-4080-b501-8b5fc0db9cc7",
 		staff1105: "014edb30-3f1f-45ee-a8fe-9b0c02f67aef",
 		staff1107: "0f44ef4b-07b8-4430-bc20-530474a9f217",
@@ -175,16 +223,209 @@
 		staff1319: "aff27dee-97d2-46f8-b90d-43f51dbff0a4",
 		staff1320: "c10ca068-985f-4ecc-8b44-3454ea9ce2cf"
 	};
-	var prefix = "grvopen://https_58_47_47yamaokaya1_46sharepoint_46com_47sites_47staffs_95storage/_aahl";
+	var man_guids = {
+		"a.ohkabe": "1605e56b-718a-4ea4-bb05-7a33a3894678",
+		"a.saitoh": "90a46dd4-c8fd-471d-948e-3a2a22ff921a",
+		"a.saitou": "08c1d99a-6e41-4f8e-91ae-68166d707134",
+		"a.sakai": "775f0ba7-afd2-4347-93d9-343e693076ba",
+		"a.toyoshima": "1b75cda4-ef22-4f7c-a993-36e62b763952",
+		"a.tsutsui": "37142edb-059d-4bd4-bfa5-04072521b747",
+		"a.yoshikawa": "ed6c2af4-fe2c-4b14-8ab9-c4cb9470c7d9",
+		"d.maeda": "836322f9-7f5b-4b76-b1c5-4c46b5f793c0",
+		"e.yasui": "e0572df5-4bb3-4fa1-8307-46d3f7078ba0",
+		"g.onodera": "37940c54-108a-40a4-951a-8949e61eaf56",
+		"h.hiyama": "68ae30fa-0939-4411-94b7-1edbe3688654",
+		"h.itou": "54e83fb8-d7b6-481c-b10e-2d647f51ce83",
+		"h.izawa": "b0ac9bdb-c18c-40e6-a331-566501058240",
+		"h.katoh": "3444a912-760b-438b-a3e8-c5f6571cb3e7",
+		"h.koibuchi": "c9da099c-2eed-4014-a68a-eba7a651f4f7",
+		"h.nishimura": "828dc74c-4ece-4f2a-8167-95776c49c3cd",
+		"h.nishizaka": "586a97c8-c4e3-4386-9b65-60a63f4ce06d",
+		"h.obara": "9af041fe-6271-4c56-b4bb-c4c86611914d",
+		"h.saitoh": "5dac6ef6-9203-4737-b3f3-a3b0e5dbc18b",
+		"h.yamada": "04f561bc-4cdb-4fa6-af30-5d4119dd13a9",
+		"i.kondou": "2cbfca07-2c92-4bd3-809d-5fc9aac74d87",
+		"j.izumi": "02bea6bd-a0c5-4a08-8693-7b79a5c2f8aa",
+		"j.ohshima": "07566d79-525f-46b7-ab24-00d3c8226d8f",
+		"j.sato": "930740fe-c227-4b03-ae2a-d1ff916240a8",
+		"k.aoshima": "3b56afd5-b253-4e46-85b8-2ef13588569b",
+		"k.arai": "dccb1c5a-7d48-48ea-b8b4-03b739756caf",
+		"k.ashiya": "24b451f8-d2f0-49fb-a13a-e93d256eec3e",
+		"k.enohara": "dad39891-8012-4860-9159-9321c1da1555",
+		"k.itoi": "34cd58db-fc00-4a8c-b499-f5d7a7741bb1",
+		"k.katayama": "b236f759-e959-43c8-bcb1-82184c047d39",
+		"k.kobayashi": "d089c3c6-0893-47fb-94fc-a83e7d7e8a87",
+		"k.kushida": "6d5f09bc-13d2-4a96-ae8e-1ac88271d4e9",
+		"k.maeda": "fe178b9a-2eba-4253-90d3-6977606fe1bd",
+		"k.mikami": "0a2e0bcc-869a-4300-b9d4-33118acbee18",
+		"k.morita": "1f2bcf00-9967-4e2c-b134-2d62cd3acded",
+		"k.nagata": "7b2c8837-90a0-4231-805d-dcbc0b462cbc",
+		"k.nakajima": "115a7727-8df7-4ea5-9974-41698881b4e0",
+		"k.noguchi": "2e85a7d5-6ae3-4fed-bcd6-87e3419fa785",
+		"k.ohmichi": "9b19725c-d54c-42a2-87af-df3b03683ed2",
+		"k.sakai": "c169c0fc-6b91-46e5-9e9b-7ee1ac15baa8",
+		"k.satou": "202a7898-4e2a-4542-bc3e-000401919a84",
+		"k.yoshimura": "40911cb2-18fd-45df-8e0e-f04c4c826922",
+		"ky.kobayashi": "8149253c-1eb8-4864-8887-f3666bffd207",
+		"m.abe": "5c2e3dc4-fcdf-4fc8-88d5-b3c16bad8452",
+		"m.endou": "8d575212-777a-4363-8df9-324241fa2207",
+		"m.gyoutoku": "02108bd5-b6e5-4995-acec-4a1b936e38b8",
+		"m.hashimoto": "8a9526dd-e0bb-4baf-9f71-f17f6499785e",
+		"m.iimura": "5750874c-d7f5-4bed-ae82-2b5154640552",
+		"m.kameda": "f2c3176b-f1a8-439e-83be-bb7dc69a0aa7",
+		"m.katou": "4f445f4d-2974-46cc-ac79-81ae89e6c89b",
+		"m.kojima": "9f34508f-f263-457d-b359-1c8dbf649f14",
+		"m.saitoh": "90733510-e958-4b2c-ab54-a82824ff71e9",
+		"m.sasaki": "f8cd32d1-24fd-4b30-a5e0-0f0e7a6386f7",
+		"m.satou": "d0e21b94-024b-4bb5-9665-a8c89f05d8e0",
+		"m.shigeizumi": "ca9b249d-292f-4ce3-a0d6-1953e2a5122c",
+		"m.shiokawa": "bb0983c1-9435-4c34-a48b-2e4d6c73141e",
+		"m.takaya": "7261136b-50ca-4bda-a495-5420211d6fd3",
+		"mk.sasaki": "5bfc98df-41d2-481e-9c75-62755c8f3546",
+		"n.kayukawa": "c330e7b9-631e-44a5-ad2a-132fe1478d72",
+		"n.kondou": "4e91ace7-207f-4f06-a897-ff85b966ea20",
+		"n.masuko": "02bbb339-f110-439a-88e6-d61c1dbb6892",
+		"n.oyama": "7b14512c-db76-44b8-95ae-ca0e8266296a",
+		"n.tamura": "fef16020-738b-4d6f-8082-5877c2310197",
+		"r.doi": "0841d344-31bc-413c-944a-c1dbfe8dc3c4",
+		"r.tajima": "ad4faec9-4d8a-4e12-8cb1-161660f251ac",
+		"s.asakura": "014b1051-6649-4f08-a507-e6ca162ccb02",
+		"s.fujinuma": "34cfa0d0-bb24-496b-a552-69cf0203d2b0",
+		"s.furudate": "9202f3e8-511b-4ae0-8e41-a9c3e540d5ac",
+		"s.kobayashi": "b879277c-c236-49c3-ab68-1358355c4699",
+		"s.maeno": "7e2d217a-95e6-44f7-a727-6abfcf98b46e",
+		"s.nagai": "0e80f484-e729-4d5d-8de7-fbeaeed56487",
+		"s.nakatsuka": "76d5c638-18b9-4bfa-955f-e1e2e593b9b9",
+		"s.simizu": "edb2c16e-a1b9-4276-b7eb-431f22badfec",
+		"s.uemura": "9c63db2a-7c03-46e9-a74b-6edacaf12a9f",
+		"s.yagawa": "0bb65d73-97fb-4b5d-975e-b322742b7c53",
+		"t.chiba": "b15f3eff-ec4e-4108-9d2d-fd24f6f6995d",
+		"t.edasawa": "899ef3ee-cafb-4e10-9eb4-f58fd9b276eb",
+		"t.iguchi": "0492a716-2cf8-4d8d-8d8b-5153d4f4a1b9",
+		"t.itoh": "bb075b3d-6e9d-44f3-9ff4-43cf1cc935a4",
+		"t.kaneko": "e294f5ae-f5a8-4997-87a1-c4961396d1c4",
+		"t.kasai": "b598c033-5f96-46ec-a8ec-889668763cce",
+		"t.kawashima": "c65f20d3-e75f-41b0-9875-e3210d6d24b3",
+		"t.kuroda": "d5bfe1a1-1a02-4d18-9959-ee76eb42bdc6",
+		"t.mori": "041f271e-fca0-486d-9e53-145e060a97b2",
+		"t.nagaki": "efaae7e7-8ea3-4350-bc86-bafecc6a34b0",
+		"t.ohtaguchi": "1e675b60-8be6-4377-9f2b-f6d6137b0ffc",
+		"t.saitoh": "81ae5274-b430-4b93-a072-ad57981c0816",
+		"t.sakakibara": "a1ed386e-77b4-4144-9d73-d030bc583e91",
+		"t.suzuki": "da246152-fdf5-4fe9-ab3a-112c80bc4abc",
+		"t.takahashi": "c4bb21da-af9e-46e4-98eb-26d687b810ea",
+		"t.takahasi": "ec2ea266-ba16-466f-8a47-db9718c464ad",
+		"t.tamura": "eedf56d6-4d45-46b0-a604-364a40c557a4",
+		"t.taniuchi": "01df6df9-98bd-4cbc-b491-a61916dbbc38",
+		"t.yamada": "927bb678-b27d-40da-ae90-4f8e15d4917d",
+		"t.yamakawa": "e837867a-d2f8-4b25-a82b-2aa059210d2f",
+		"t.yamamoto": "744d60b7-2623-46d5-91ed-7854aaa975e4",
+		"takashi.uchida": "beeac3f6-e054-4a7b-a35e-e950a313fdf8",
+		"w.akita": "2ecc6aca-8927-467f-898e-6c8a76e65bb3",
+		"y.hoshino": "249a35ab-13ae-445b-aeb9-f2710946153e",
+		"y.inoue": "83e44c4f-8427-4aa1-95bc-0ca129527e4d",
+		"y.ishibashiri": "565f0ad2-5bc2-4b33-acd5-a909404f1d17",
+		"y.katsuyama": "e7e6a503-283c-4398-a86a-503f8c2f3b95",
+		"y.kitagawa": "147cb52a-8577-4769-8332-7763f663d977",
+		"y.kuroki": "a5c55cd0-e7dd-4337-85aa-a6848765d179",
+		"y.matsuo": "09e9069b-e44e-4599-bdc5-be0ed67fa14c",
+		"y.mizuno": "12251188-863d-4386-b8fe-9ccb97873cb7",
+		"y.nishiyama": "10c8c36d-b969-4886-ad58-e7780b1b5497",
+		"y.ohki": "969404d7-c956-45c7-ad00-a87f00bffcf7",
+		"y.okuyama": "2c389ddc-51c5-4063-9d48-a3696c8aa12d",
+		"y.sasaki": "ebae8693-550c-40f3-a40e-d57bcbd38b70",
+		"y.seki": "923307a5-1ca0-4910-b62a-66050af16a3b",
+		"y.toyoshima": "73908369-d656-4935-835c-2a0396a1fb3b",
+		"y.tsubaki": "d535457a-bb51-4c3c-9009-abdb169e9fb5",
+		"y.uno": "ea6d4241-93ae-4eb5-bf93-eafdd007254d",
+		"y.yamazaki": "25e21802-c524-43e5-bc75-c8e190c3bf9b",
+		"y.yonekawa": "5702f750-0c11-4603-8573-171fb8e92d86",
+		"yu.sasaki": "17e0b816-dcf3-4ee4-8654-ecc646780559",
+		"h.tanaka" : "17e0b816-dcf3-4ee4-8654-ecc646780559" //test
+	};
+	var prefix_stf = "grvopen://https_58_47_47yamaokaya1_46sharepoint_46com_47sites_47staffs_95storage/_aahl";
+	var prefix_man = "grvopen://https_58_47_47yamaokaya1_46sharepoint_46com_47sites_47managers_95storage/_aahl";
   var suffix = "_aahn/101?OPENLIST";
 	</script>
+
 	<script type="text/javascript">
-		$('button#rungroove').click(function(){
+	$(function(){
+		var getCurrentUser = function(){
 			var nw = new ActiveXObject("WScript.Network");
-			if(guids[nw.UserName.replace('-','')]){
-				guid = guids[nw.UserName.replace('-','')].replace('-',"_45")
-				window.open(prefix + suffix);
+			return nw.UserName;
+			//return 'h.tanaka'
+		}
+		$('button#rungroove').click(function(){
+			u = getCurrentUser()
+			if(shop_guids[u.replace('-','')]){
+				guid = shop_guids[u.replace('-','')].replace(/\-/g,"_45")
+				window.open(prefix_stf + guid.toUpperCase() + suffix);
+			}else if(man_guids[u]){
+				guid = man_guids[u].replace(/\-/g,"_45")
+				window.open(prefix_man + guid.toUpperCase() + suffix);
 			}
 		});
+	});
 	</script>
+	<script>
+	$(function(){
+		var shell = new ActiveXObject("Shell.Application");
+		var wshell = new ActiveXObject("Wscript.Shell");
+
+		var getActualPath = function(folder){
+
+			if(folder == 'Desktop')
+				return wshell.specialFolders('Desktop');
+			if(folder == 'Documents')
+				return wshell.specialFolders('MyDocuments');
+			if(folder == 'Favorites')
+				return wshell.specialFolders('Favorites');
+			if(folder == 'Pictures')
+				return getParentPath(wshell.specialFolders('Desktop')) + "\\Pictures";
+			if(folder == 'Music')
+				return getParentPath(wshell.specialFolders('Desktop')) + "\\Music";
+		}
+		$('button.openProps').click(function(){
+			if(findGroovePath()){
+				var groovePath = findGroovePath();
+				
+				var targetPath = getActualPath($(this).data('folder'));
+
+				var targetParent = shell.namespace(
+					getParentPath(targetPath)
+				);
+				var target = targetParent.ParseName(getLastName(targetPath));
+				window.clipboardData.setData("text",groovePath + "\\" + $(this).data('folder'));	
+				target.InvokeVerb("properties");
+
+			}else{
+				alert('まだオンラインストレージの設定が終わっていないようです。');
+			}
+
+		});
+		var getParentPath = function(path){
+			p = path.split('\\');
+			p.pop();
+
+			return p.join('\\');
+		}
+		var getLastName = function(path){
+			p = path.split('\\');
+			return p[p.length-1]
+		}
+
+		var findGroovePath = function(){
+			var key = 'HKEY_CURRENT_USER\\Software\\Microsoft\\Office\\15.0\\Common\\Internet\\LocalSyncClientDiskLocation';
+			regs = VBArray(wshell.RegRead(key)).toArray();
+			var ret = null;
+			_.each(regs,function(v){
+				if(v.indexOf('オンラインストレージ')){
+					ret = v
+				}
+			});
+			return ret;
+		}
+	});
+	</script>
+
 </html>
