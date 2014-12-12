@@ -10,7 +10,10 @@ node default {
   include vnc
   include netlogon
   include pinned-site
-
+  class { 'windows_autoupdate': 
+    aUOptions => 4,
+    scheduledInstallTime => 12
+  }
   if $hostname =~ /^s([0-9]{4})\-tab.*/ {
     class { 'winntp':
       ntp_server => '192.168.11.1'
