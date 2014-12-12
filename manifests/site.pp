@@ -11,8 +11,7 @@ node default {
   include netlogon
   include pinned-site
   class { 'windows_autoupdate': 
-    aUOptions => 4,
-    scheduledInstallTime => 12
+    aUOptions => 4
   }
   if $hostname =~ /^s([0-9]{4})\-tab.*/ {
     class { 'winntp':
