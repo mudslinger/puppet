@@ -15,7 +15,25 @@
 			<div class="row">
 				<h3>1.OneDrive For Businessを使ってクラウドとPCのファイル同期の設定を行います。</h3>
 				<p>
-					<button class="btn" id="rungroove">このボタンを押して設定してください。</button> 
+					Office365のパスワードを用意してください。
+				</p>
+				<p>
+					<ol>
+						<li>
+							↓のボタンを押すと、「このWEBサイトがこのコンピュータのプログラムを…」というダイアログが表示されますので、「許可」を押してください。
+						</li>
+						<li>
+							次にメールアドレスを求められます。あなたのメールアドレスはおそらく以下だと思われます。
+							<span class="your_mail_addr" />
+							正しいメールアドレスを入力してください。
+						</li>
+						<li>
+							次にパスワードを求められるので入力してください。
+						</li>
+
+				</p>
+				<p>
+					<button class="btn" id="rungroove">このボタンを押してスタート</button> 
 				</p>
 			</div>
 			<div class="row">
@@ -59,7 +77,10 @@
 					「スタート画面」からメールアプリを開き、ご自身のアカウントを登録してください。
 				</p>
 				<small>
-					メールアドレスとパスワードをご用意ください。
+					あなたのメールアドレスはおそらく
+					<span class="your_mail_addr" ></span>
+					です。
+					上記メールアドレスとご記憶のパスワードを入力して、メールの設定を完了させてください。
 				</small>
 			</div>
 		</div>
@@ -357,11 +378,18 @@
 
 	<script type="text/javascript">
 	$(function(){
+
+		var shell = new ActiveXObject("Shell.Application");
+		var wshell = new ActiveXObject("Wscript.Shell");
+
 		var getCurrentUser = function(){
 			var nw = new ActiveXObject("WScript.Network");
 			return nw.UserName;
 			//return 'h.tanaka'
 		}
+
+		$("span.your_mail_addr").text(getCurrentUser()+"@yamaokaya.com");
+
 		$('button#rungroove').click(function(){
 			u = getCurrentUser()
 			if(shop_guids[u.replace('-','')]){
@@ -372,12 +400,6 @@
 				window.open(prefix_man + guid.toUpperCase() + suffix);
 			}
 		});
-	});
-	</script>
-	<script>
-	$(function(){
-		var shell = new ActiveXObject("Shell.Application");
-		var wshell = new ActiveXObject("Wscript.Shell");
 
 		var getActualPath = function(folder){
 

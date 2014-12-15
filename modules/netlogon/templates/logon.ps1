@@ -40,6 +40,21 @@ $pathes | ForEach-Object {
   if($verb){$verb.doIt()}
 }
 
+#remove pinned apps
+
+$roaming = [environment]::getfolderpath("ApplicationData")
+$etcpath = $shell.Namespace("$roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar")
+
+$pathes = @(`
+  $etcpath.Parsename('Amazon.lnk'), `
+  $etcpath.Parsename('Lenovo PC Experience.lnk'),`
+  $etcpath.Parsename('Maxthon Cloud Browser.lnk'))
+
+$pathes | ForEach-Object {
+  $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーからピン留めを外す(&K)'}
+  if($verb){$verb.doIt()}
+}
+
 $exp = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
 $win = "HKCU:\Software\Policies\Microsoft\Windows"
 
