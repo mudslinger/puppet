@@ -13,18 +13,14 @@ node default {
   class { 'windows_autoupdate': 
     aUOptions => 4
   }
-  # class { 'puppet::agent':
-  #   puppet_server => masterofpuppets,
-  #   environment => production,
-  #   puppet_run_interval => 2880
-  # }
+
   if $hostname =~ /^s([0-9]{4})\-tab.*/ {
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
     include opt-feature
     include office
- 
+    include msra
     include adobe-reader
     include flash-plugin
     if $operatingsystem == 'windows' {
