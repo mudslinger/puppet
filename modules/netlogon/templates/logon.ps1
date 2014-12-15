@@ -28,12 +28,13 @@ $shell = new-object -com "Shell.Application"
 
 $officepath = $shell.Namespace([Environment]::GetFolderPath('ProgramFiles') + "\Microsoft Office 15\root\office15")
 $sys32 = $shell.Namespace([Environment]::GetFolderPath('System'))
-
+$msrabatPath= $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + '\Microsoft\Windows\Start Menu\Programs')
 $pathes = @(`
   $officepath.Parsename('EXCEL.EXE'),`
   $officepath.Parsename('WINWORD.EXE'), `
   $officepath.Parsename('POWERPNT.EXE'),`
-  $sys32.Parsename('StikyNot.exe'))
+  $sys32.Parsename('StikyNot.exe'), `
+  $msrabatPath.ParseName('リモートヘルプ.bat'))
 
 $pathes | ForEach-Object {
   $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーにピン留め(&K)'}
