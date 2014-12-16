@@ -7,6 +7,7 @@ class puppetconf {
   exec { "restart-puppet":
   	command => "Restart-Service 'puppet'",
   	provider => powershell,
-  	logoutput => true
+  	logoutput => true,
+  	require => File[$puppetconfpath]
   }
 }
