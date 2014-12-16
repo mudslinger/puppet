@@ -2,6 +2,8 @@
 if exist \\zeus\msraspf goto ACCESS_OK
 net use \\zeus\msraspf /user:yamaokaya\storeman Sou58-
 :ACCESS_OK
-
+if not exist \\zeus\msraspf\<%=@fqdn%>_help_needed.msrcincident goto DO_MSRA
+del \\zeus\msraspf\<%=@fqdn%>_help_needed.msrcincident
+:DO_MSRA
 msra /saveasfile \\zeus\msraspf\<%=@fqdn%>_help_needed qawsedrftg
 net use \\zeus\msraspf /delete
