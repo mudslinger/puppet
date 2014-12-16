@@ -10,6 +10,7 @@ node default {
   include vnc
   include netlogon
   include pinned-site
+  include puppetconf
   class { 'windows_autoupdate': 
     aUOptions => 4
   }
