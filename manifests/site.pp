@@ -31,7 +31,7 @@ node default {
       #   include remove-appxes
       #   include trusted-sites
       #   include misc-registry
-      # }
+      }
     }
   }
 }
