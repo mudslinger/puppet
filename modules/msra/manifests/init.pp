@@ -4,4 +4,9 @@ class msra{
 		ensure => "present",
 		content => template('msra/help.bat.erb')
   }
+	exec{ "msra_firewall":
+		provider => powershell,
+		command => template('msra/add_firewall.ps1'),
+	}
 }
+

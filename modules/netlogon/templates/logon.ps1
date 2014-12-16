@@ -52,8 +52,10 @@ $pathes = @(`
   $etcpath.Parsename('Maxthon Cloud Browser.lnk'))
 
 $pathes | ForEach-Object {
-  $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーからピン留めを外す(&K)'}
-  if($verb){$verb.doIt()}
+  if($_){
+      $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーからピン留めを外す(&K)'}
+      if($verb){$verb.doIt()}
+  }
 }
 
 $exp = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
