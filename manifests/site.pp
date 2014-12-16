@@ -21,7 +21,7 @@ node default {
     }
     include opt-feature
     include office
-    include msra
+    #include msra
     include adobe-reader
     include flash-plugin
     if $operatingsystem == 'windows' {
