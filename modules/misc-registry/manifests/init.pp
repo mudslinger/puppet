@@ -57,6 +57,6 @@ class misc-registry{
   registry::value { "*.fujipan.co.jp":
     key => "HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\New Windows\\Allow",
     type => binary,
-    data => '00 00 00 00'
+    data => '00 00'
   }
 }
