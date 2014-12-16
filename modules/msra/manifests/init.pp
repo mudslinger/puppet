@@ -1,6 +1,6 @@
-class msra{
+class msra inherits setup{
 	$pos = "c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"
-	file{"$pos\\remotehelp.bat":
+	file{"$setupdir\\remotehelp.bat":
 		ensure => "present",
 		content => template('msra/help.bat.erb')
 	}
@@ -11,7 +11,7 @@ class msra{
 	exec{ "msra_link":
 		provider => powershell,
 		command => template('msra/create_shortcut.ps1'),
-		require => File["$pos\\remotehelp.bat"]
+		require => File["$setupdir\\remotehelp.bat"]
 	}
 }
 
