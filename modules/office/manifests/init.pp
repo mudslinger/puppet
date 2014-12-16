@@ -5,7 +5,6 @@ class office(
   $grvpath = "$setupdir\\groove"
 ) inherits setup{
   $confxmlpath = "$grvpath\\configuration.xml"
-  notice($manufacturer)
   file{ $grvpath:
     ensure => present,
     source => "puppet:///files/groove",
@@ -24,8 +23,8 @@ class office(
   exec{ "download_groove":
     command => "$grvpath\\setup.exe /configure $confxmlpath",
     provider => powershell,
-    onlyif => "if(Get-WmiObject -Class Win32_Product | ? { $_.name -like '*OneDrive for Business*'' }){exit 1}else{exit 0}",
-    timeout => 1200,
+    onlyif => "if(Get-WmiObject -Class Win32_Product | ? { $_.name -like '*Click-to-Run*' }){exit 1}else{exit 0}",
+    timeout => 1900,
     require => [File[$grvpath],File[$confxmlpath]]
   }
 }
