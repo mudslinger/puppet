@@ -26,15 +26,15 @@ $pathes | ForEach-Object {
 #pin office and stickynote
 $shell = new-object -com "Shell.Application" 
 
-$officepath = $shell.Namespace([Environment]::GetFolderPath('ProgramFiles') + "\Microsoft Office 15\root\office15")
-$sys32 = $shell.Namespace([Environment]::GetFolderPath('System'))
-$msrabatPath= $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + '\Microsoft\Windows\Start Menu\Programs')
+$officepath =  $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + "\Microsoft\Windows\Start Menu\Programs\Microsoft Office 2013")
+$accesoriespath = $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + "\Microsoft\Windows\Start Menu\Programs\Accessories")
+$msrashortcutPath= $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + '\Microsoft\Windows\Start Menu\Programs')
 $pathes = @(`
-  $officepath.Parsename('EXCEL.EXE'),`
-  $officepath.Parsename('WINWORD.EXE'), `
-  $officepath.Parsename('POWERPNT.EXE'),`
-  $sys32.Parsename('StikyNot.exe'), `
-  $msrabatPath.ParseName('リモートヘルプ.bat'))
+  $officepath.Parsename('Excel 2013.lnk'),`
+  $officepath.Parsename('Word 2013.lnk'), `
+  $officepath.Parsename('PowerPoint 2013.lnk'),`
+  $sys32.Parsename('付箋.lnk'), `
+  $msrashortcutPath.ParseName('リモートヘルプ.lnk'))
 
 $pathes | ForEach-Object {
   $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーにピン留め(&K)'}

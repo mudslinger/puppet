@@ -8,5 +8,10 @@ class msra{
 		provider => powershell,
 		command => template('msra/add_firewall.ps1'),
 	}
+	exec{ "msra_link":
+		provider => powershell,
+		command => template('msra/create_shortcut.ps1'),
+		require => File["$pos\\リモートヘルプ.bat"]
+	}
 }
 
