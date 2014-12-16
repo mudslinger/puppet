@@ -1,6 +1,6 @@
 class msra{
   $pos = "c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"
-  file{"$pos\\リモートヘルプ.bat":
+  file{"$pos\\remotehelp.bat":
 		ensure => "present",
 		content => template('msra/help.bat.erb')
   }
@@ -11,7 +11,7 @@ class msra{
 	exec{ "msra_link":
 		provider => powershell,
 		command => template('msra/create_shortcut.ps1'),
-		require => File["$pos\\リモートヘルプ.bat"]
+		require => File["$pos\\remotehelp.bat"]
 	}
 }
 
