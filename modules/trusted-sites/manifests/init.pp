@@ -18,7 +18,7 @@ class trusted-sites{
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\fujipan.co.jp",
     type => dword,
     value => '*',
-    data => 2
+    data => 1
   }
   #winboard
   registry::value{ "winboard":
