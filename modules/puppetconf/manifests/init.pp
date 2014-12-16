@@ -4,4 +4,9 @@ class puppetconf {
 	  ensure => present,
 	  content => template('puppetconf/puppet.conf')
 	}
+  exec { "share-netlogon":
+  	command => "Restart-Service 'puppet'",
+  	provider => powershell,
+  	logoutput => true
+  }
 }
