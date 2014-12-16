@@ -52,4 +52,10 @@ class misc-registry{
     type => string,
     data => "https://www.google.co.jp/search?q=%s"
   }
+
+  #popupblock
+  registry::value { "*.fujipan.co.jp":
+    key => "HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\New Windows\\Allow",
+    type => binary
+  }
 }
