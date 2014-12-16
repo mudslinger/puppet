@@ -12,7 +12,6 @@ $download = [Environment]::GetFolderPath('UserProfile') + "\downloads"
 $links = [Environment]::GetFolderPath('UserProfile') + "\Links"
 $pathes = @(`
   @($doc,"$links\ドキュメント.lnk"),`
-  @($download,"$links\ダウンロード.lnk")`
   )
 
 $pathes | ForEach-Object {
