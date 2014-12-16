@@ -56,6 +56,7 @@ class misc-registry{
   #popupblock
   registry::value { "*.fujipan.co.jp":
     key => "HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\New Windows\\Allow",
-    type => binary
+    type => binary,
+    data => '00 00 00 00'
   }
 }
