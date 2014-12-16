@@ -10,5 +10,5 @@ net user Administrator P@ssw0rd /active:yes
 
 $testcreator = $computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.Name -eq 'creator'}
 if($testcreator){
-net user creater /delete
+net user creator /delete
 }
