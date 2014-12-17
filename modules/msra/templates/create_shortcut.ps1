@@ -1,8 +1,10 @@
-ï»¿$shell = New-Object -ComObject WScript.Shell
+$shell = New-Object -ComObject WScript.Shell
 
 $path = [Environment]::GetFolderPath("CommonApplicationData") + "\Microsoft\Windows\Start Menu\Programs"
+write-host $path
 $cmd = [Environment]::GetFolderPath("System") + "\cmd.exe"
-$dest = "$path\æœ¬éƒ¨ã¸ãƒªãƒ¢ãƒ¼ãƒˆãƒ¡ãƒ³ãƒ†è¦è«‹.lnk"
+$dest = "$path\–{•”‚ÖƒŠƒ‚[ƒgƒƒ“ƒe—v¿.lnk"
+write-host $dest
 if(-not(Test-Path $dest)){
     $shortcut = $shell.CreateShortcut($dest)
     $shortcut.TargetPath = $cmd
