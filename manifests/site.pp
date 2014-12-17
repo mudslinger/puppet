@@ -3,14 +3,14 @@ node default {
   class { 'setup':
     setupdir => "c:\\setup"
   }
-  # include ping-buffer-size
-  # include msao
-  # include servicedeskplus
-  # include eset
-  # include vnc
-  # include netlogon
-  # include pinned-site
-  # include puppetconf
+  include ping-buffer-size
+  include msao
+  include servicedeskplus
+  include eset
+  include vnc
+  include netlogon
+  include pinned-site
+  include puppetconf
   class { 'windows_autoupdate': 
     aUOptions => 4
   }
@@ -19,11 +19,11 @@ node default {
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
-    #include opt-feature
-    #include office
+    include opt-feature
+    include office
     include msra
-    #include adobe-reader
-    #include flash-plugin
+    include adobe-reader
+    include flash-plugin
     if $operatingsystem == 'windows' {
       if $operatingsystemrelease == '8.1' {
         include power-management   
