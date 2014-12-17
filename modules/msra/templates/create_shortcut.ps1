@@ -2,8 +2,8 @@ $shell = New-Object -ComObject WScript.Shell
 
 $path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs"
 $cmd = [Environment]::GetFolderPath("System") + "\cmd.exe"
-$dest = "$path\honbu-remote.lnk"
-if(-not(Test-Path $dest)){
+$dest = "$path\本部へリモートメンテ要請.lnk"
+try{
     $shortcut = $shell.CreateShortcut($dest)
     $shortcut.TargetPath = $cmd
     $shortcut.Arguments = "/C C:\setup\remotehelp.bat"
@@ -11,4 +11,6 @@ if(-not(Test-Path $dest)){
     $shortcut.IconLocation = [Environment]::GetFolderPath("System") + "msra.exe,0"
     $shortcut.WindowStyle = 7
     $shortcut.save()
+}catch{
+    write-host 'could not create shortcut'
 }
