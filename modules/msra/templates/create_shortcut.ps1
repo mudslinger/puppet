@@ -8,7 +8,7 @@ if(-not(Test-Path $dest)){
     $shortcut.TargetPath = $cmd
     $shortcut.Arguments = "/C C:\setup\remotehelp.bat"
     $shortcut.WorkingDirectory = "c:\setup"
-    $shortcut.IconLocation = "msra.exe,0"
+    $shortcut.IconLocation = [Environment]::GetFolderPath("System") + "msra.exe,0"
     $shortcut.WindowStyle = 7
     $shortcut.save()
 }
