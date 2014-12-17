@@ -11,7 +11,7 @@ class msra inherits setup{
 	}
 	exec{ "msra_link":
 		provider => powershell,
-		command => template('msra/create_shortcut.ps1'),
+		command => template('msra/create_shortcut.ps1.erb'),
 		require => File["$setupdir\\remotehelp.bat"]
 	}
 }
