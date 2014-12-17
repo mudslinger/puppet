@@ -1,8 +1,7 @@
-﻿$shell = New-Object -ComObject WScript.Shell
-
+$shell = New-Object -ComObject WScript.Shell
 $path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs"
 $cmd = [Environment]::GetFolderPath("System") + "\cmd.exe"
-$dest = "$path\本部remote.lnk"
+$dest = "$path\honbu-remote.lnk"
 $shortcut = $shell.CreateShortcut($dest)
 $shortcut.TargetPath = $cmd
 $shortcut.Arguments = "/C C:\setup\remotehelp.bat"
