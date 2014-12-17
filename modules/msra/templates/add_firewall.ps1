@@ -1,6 +1,6 @@
 $msra = [environment]::getfolderpath("System") + "\msra.exe"
 $raserver = [environment]::getfolderpath("System") + "\raserver.exe"
-if(-not(Get-NetFirewallRule -DisplayName 'msra'){
+if(-not(Get-NetFirewallRule -DisplayName 'msra')){
 New-NetFirewallRule `
   -DisplayName msra `
   -Enabled true `
@@ -15,7 +15,7 @@ New-NetFirewallRule `
   -LocalUser Any  `
   -RemoteUser Any
 }
-if(-not(Get-NetFirewallRule -DisplayName 'raserver'){
+if(-not(Get-NetFirewallRule -DisplayName 'raserver')){
 New-NetFirewallRule `
   -DisplayName msra `
   -Enabled true `
