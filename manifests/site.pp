@@ -10,6 +10,9 @@ node default {
   include vnc
   include netlogon
   include pinned-site
+  include npp
+  include sevenzip
+
   #include puppetconf
   class { 'windows_autoupdate': 
     aUOptions => 4
@@ -19,7 +22,6 @@ node default {
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
-    include npp
     include opt-feature
     include office
     include msra
