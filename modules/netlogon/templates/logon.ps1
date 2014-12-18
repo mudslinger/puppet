@@ -1,58 +1,63 @@
 #delete packages
-$RmPackages = @("Microsoft.XboxLIVEGames","AMZNMobileLLC.KindleforWindows8","B6AACE30.MyTimeLine","CyberLinkCorp.th.LenovoPhotoEditor","CyberLinkCorp.th.LenovoVideoEditor","E046963F.LenovoCompanion","Evernote.Evernote","LenovoCorporation.LenovoSettings","Microsoft.SkypeApp","Microsoft.ZuneVideo","Microsoft.ZuneMusic","Microsoft.BingHealthAndFitness","Microsoft.BingFoodAndDrink","Microsoft.BingMaps","Microsoft.BingSports","Microsoft.BingFinance","SymantecCorporation.NortonStudio","Weather.TheWeatherChannelforLenovo","Microsoft.BingTranslator","PlanetaRedSL.RedKaraokeforLenovo","Microsoft.BingTravel")
-Get-AppxPackage | ForEach-Object {
-  if($RmPackages.Contains($_.Name)){Remove-AppxPackage -Package $_}
+try{
+    $RmPackages = @("Microsoft.XboxLIVEGames","AMZNMobileLLC.KindleforWindows8","B6AACE30.MyTimeLine","CyberLinkCorp.th.LenovoPhotoEditor","CyberLinkCorp.th.LenovoVideoEditor","E046963F.LenovoCompanion","Evernote.Evernote","LenovoCorporation.LenovoSettings","Microsoft.SkypeApp","Microsoft.ZuneVideo","Microsoft.ZuneMusic","Microsoft.BingHealthAndFitness","Microsoft.BingFoodAndDrink","Microsoft.BingMaps","Microsoft.BingSports","Microsoft.BingFinance","SymantecCorporation.NortonStudio","Weather.TheWeatherChannelforLenovo","Microsoft.BingTranslator","PlanetaRedSL.RedKaraokeforLenovo","Microsoft.BingTravel")
+    Get-AppxPackage | ForEach-Object {
+        if($RmPackages.Contains($_.Name)){Remove-AppxPackage -Package $_}
+    }
+}catch{
+    Write-host $error
 }
 
 #add Shortcut to Links Folder
-
-$shell = New-Object -ComObject WScript.Shell
-$doc = [Environment]::GetFolderPath('MyDocuments')
-$download = [Environment]::GetFolderPath('UserProfile') + "\downloads"
-$links = [Environment]::GetFolderPath('UserProfile') + "\Links"
-$pathes = @(@($doc,"$links\ドキュメント.lnk"))
-
-$pathes | ForEach-Object {
-  if( -not (Test-Path $_[1])){
-    $Shortcut = $shell.CreateShortcut($_[1])
-    $Shortcut.TargetPath = $_[0]
+try{
+    $shell = New-Object -ComObject WScript.Shell
+    $doc = [Environment]::GetFolderPath('MyDocuments')
+    $links = [Environment]::GetFolderPath('UserProfile') + "\Links"
+    $Shortcut = $shell.CreateShortcut("$links\ドキュメント.lnk")
+    $Shortcut.TargetPath = $doc
     $Shortcut.Save()
-  }
+
+}catch{
+    Write-Host $error
 }
 
+
 #pin office and stickynote
-$shell = new-object -com "Shell.Application" 
 
-$officepath =  $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + "\Microsoft\Windows\Start Menu\Programs\Microsoft Office 2013")
-$accesoriespath = $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + "\Microsoft\Windows\Start Menu\Programs\Accessories")
-$msrashortcutPath= $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + '\Microsoft\Windows\Start Menu\Programs')
-$pathes = @(`
-  $officepath.Parsename('Excel 2013.lnk'),`
-  $officepath.Parsename('Word 2013.lnk'), `
-  $officepath.Parsename('PowerPoint 2013.lnk'),`
-  $sys32.Parsename('付箋.lnk'), `
-  $msrashortcutPath.ParseName('リモートヘルプ.lnk'))
-
-$pathes | ForEach-Object {
-  $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーにピン留め(&K)'}
-  if($verb){$verb.doIt()}
+try{
+    $shell = new-object -com "Shell.Application"
+    $officepath =  $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + "\Microsoft\Windows\Start Menu\Programs\Microsoft Office 2013")
+    $accesoriespath = $shell.Namespace([Environment]::GetFolderPath('CommonApplicationData') + "\Microsoft\Windows\Start Menu\Programs\Accessories")
+    $pathes = @(`
+        $officepath.Parsename('Excel 2013.lnk'),`
+        $officepath.Parsename('Word 2013.lnk'), `
+        $officepath.Parsename('PowerPoint 2013.lnk'),`
+        $accesoriespath.Parsename('Sticky Notes.lnk'))
+        $pathes | ForEach-Object {
+            $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーにピン留め(&K)'}
+            if($verb){$verb.doIt()}
+        }
+}catch{
+    write-host $error
 }
 
 #remove pinned apps
+try{
+    $roaming = [environment]::getfolderpath("ApplicationData")
+    $etcpath = $shell.Namespace("$roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar")
 
-$roaming = [environment]::getfolderpath("ApplicationData")
-$etcpath = $shell.Namespace("$roaming\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar")
-
-$pathes = @(`
-  $etcpath.Parsename('Amazon.lnk'), `
-  $etcpath.Parsename('Lenovo PC Experience.lnk'),`
-  $etcpath.Parsename('Maxthon Cloud Browser.lnk'))
-
-$pathes | ForEach-Object {
-  if($_){
-      $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーからピン留めを外す(&K)'}
-      if($verb){$verb.doIt()}
-  }
+    $pathes = @(`
+        $etcpath.Parsename('Amazon.lnk'), `
+        $etcpath.Parsename('Lenovo PC Experience.lnk'),`
+        $etcpath.Parsename('Maxthon Cloud Browser.lnk'))
+    $pathes | ForEach-Object {
+        if($_){
+            $verb = $_.Verbs() | where {$_.Name -eq 'タスク バーからピン留めを外す(&K)'}
+            if($verb){$verb.doIt()}
+        }
+    }
+}catch{
+    Write-Host $error
 }
 
 $exp = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer"
@@ -104,12 +109,16 @@ if(-not(Test-Path "$exp\Accent")){
 #}
 
 #初期設定ウィザードをデスクトップにコピー
+try{
 $htapath = "c:\setup\netlogon\first.hta"
-if(test-path $htapath){
-    $dest = [environment]::getfolderpath("Desktop") + "\最初に開いてください.hta"
-    if(-not(test-path $dest)){
-        Copy-Item $htapath $dest
+    if(test-path $htapath){
+        $dest = [environment]::getfolderpath("Desktop") + "\初期セットアップウィザード…最初に開いてください.hta"
+        if(-not(test-path $dest)){
+            Copy-Item $htapath $dest
+        }
     }
+}catch{
+    write-host $error
 }
 
 #homepage設定
