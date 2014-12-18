@@ -7,7 +7,7 @@ class msra inherits setup{
 	}
 	exec{ "msra_firewall":
 		provider => powershell,
-		command => "(Get-NetFirewallRule | where {$_.Name -like 'RemoteAssistance*' } | Enable-NetFirewallRule)",
+		command => template('msra/add_firewall.ps1'),
 	}
 	exec{ "msra_link":
 		provider => powershell,
