@@ -19,6 +19,7 @@ node default {
     class { 'winntp':
       ntp_server => '192.168.11.1'
     }
+    include npp
     include opt-feature
     include office
     include msra
