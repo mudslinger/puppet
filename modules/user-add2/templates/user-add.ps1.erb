@@ -1,8 +1,17 @@
 $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
-<% @users.each do |u| %>
+$enc = [System.Text.Encoding]::GetEncoding(932)
+<%
+require 'base64'
+@users.each do |u| %>
+
 $test = $computer.Children | where {$_.SchemaClassName -eq 'user'} | where {$_.Name -eq '<%=u['id']%>'}
 if($test -eq $null){
-net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no /scriptpath:'logon.bat'
+
+$b64name = "<%=Base64.encode64((u['staff_name']).encode("Windows-31J"))%>"
+$bytes = [System.Convert]::FromBase64String( $b64name )
+$name = $enc.getString($bytes)
+
+net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no /scriptpath:'logon.bat' /fullname:"$name"
 net localgroup "<%=u['group']%>" "<%=u['id']%>" /add
 }
 <% end %>
