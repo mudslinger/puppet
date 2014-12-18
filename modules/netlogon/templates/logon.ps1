@@ -10,9 +10,7 @@ $shell = New-Object -ComObject WScript.Shell
 $doc = [Environment]::GetFolderPath('MyDocuments')
 $download = [Environment]::GetFolderPath('UserProfile') + "\downloads"
 $links = [Environment]::GetFolderPath('UserProfile') + "\Links"
-$pathes = @(`
-  @($doc,"$links\ドキュメント.lnk"),`
-  )
+$pathes = @(@($doc,"$links\ドキュメント.lnk"))
 
 $pathes | ForEach-Object {
   if( -not (Test-Path $_[1])){
