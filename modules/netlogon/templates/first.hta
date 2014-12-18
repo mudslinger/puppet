@@ -47,6 +47,7 @@
 						このボタンを押すとプロパティが開きます。
 					</button>
 				</p>
+				<hr />
 				<h3>3.同じようにミュージック・ピクチャ・お気に入りを設定してください。</h3>
 				<p>
 					開いたら「場所」タブに移動してください。
@@ -63,6 +64,7 @@
 						ミュージック
 					</button>
 				</p>
+				<hr />
 				<h3>4.最後にデスクトップを移動します。</h3>
 				<p>
 					開いたら「場所」タブに移動してください。
@@ -72,6 +74,7 @@
 						デスクトップ
 					</button>
 				<p>
+				<hr />
 				<h3>5.メールの設定</h3>
 				<p>
 					「スタート画面」からメールアプリを開き、ご自身のアカウントを登録してください。
@@ -82,11 +85,18 @@
 					です。
 					上記メールアドレスとご記憶のパスワードを入力して、メールの設定を完了させてください。
 				</small>
+				<hr />
 				<h4>6.スタート画面の設定</h4>
 				<p>
 				  ↓のボタンを押すと、店舗用スタート画面にカスタマイズされます。
 				</p>
 				<button class="btn" id="customizestart">スタート画面のカスタマイズ</button>
+				<hr />
+				<h4>最後に</h4>
+				<p>すべて完了したら、チェックを入れ、完了ボタンを押してください。</p>
+				<label for="allok">すべての作業が完了しました。</label>
+				<input type="checkbox" id="allok" name="allok" value="true"/>
+				<button class="btn" id="done">完了</button>
 			</div>
 		</div>
 	</body>
@@ -374,7 +384,6 @@
 		"y.yamazaki": "25e21802-c524-43e5-bc75-c8e190c3bf9b",
 		"y.yonekawa": "5702f750-0c11-4603-8573-171fb8e92d86",
 		"yu.sasaki": "17e0b816-dcf3-4ee4-8654-ecc646780559",
-		"h.tanaka" : "17e0b816-dcf3-4ee4-8654-ecc646780559" //test
 	};
 	var prefix_stf = "grvopen://https_58_47_47yamaokaya1_46sharepoint_46com_47sites_47staffs_95storage/_aahl";
 	var prefix_man = "grvopen://https_58_47_47yamaokaya1_46sharepoint_46com_47sites_47managers_95storage/_aahl";
@@ -406,6 +415,17 @@
 			});
 
 		}
+		$("#done").click(function(){
+			if($("#allok:checked").val()){
+				var selfPath = location.pathname.replace(/\//g, "");
+				alert(selfPath);
+				var myself = fs.getFile(selfPath);
+				myself.attributes = 2;
+				window.close();
+			}else{
+				alert("完了するにはチェックを入れてください。");
+			}
+		});
 
 		$("button#customizestart").click(function(){
 			var folder = shell.namespace(28);
