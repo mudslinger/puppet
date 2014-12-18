@@ -82,6 +82,11 @@
 					です。
 					上記メールアドレスとご記憶のパスワードを入力して、メールの設定を完了させてください。
 				</small>
+				<h4>6.スタート画面の設定</h4>
+				<p>
+				  ↓のボタンを押すと、店舗用スタート画面にカスタマイズされます。
+				</p>
+				<button class="btn" id="customizestart">スタート画面のカスタマイズ</button>
 			</div>
 		</div>
 	</body>
@@ -381,12 +386,42 @@
 
 		var shell = new ActiveXObject("Shell.Application");
 		var wshell = new ActiveXObject("Wscript.Shell");
-
+		var fs = new ActiveXObject("Scripting.FileSystemObject");
 		var getCurrentUser = function(){
 			var nw = new ActiveXObject("WScript.Network");
 			return nw.UserName;
 			//return 'h.tanaka'
 		}
+
+		var winLogOff = function(){
+			var wmi  = new ActiveXObject("WbemScripting.SWbemLocator").ConnectServer();
+			var set = new Enumerator(wmi.execQuery("Select * From Win32_OperatingSystem"));
+			alert(set);
+			for(; !set.atEnd(); set.moveNext()){
+				alert(set.item());
+			}
+			_.each(set,function(w){
+				alert(w);
+				//w.Win32Shutdown(0);
+			});
+
+		}
+
+		$("button#customizestart").click(function(){
+			var folder = shell.namespace(28);
+			var path = folder.Self.Path + "\\Microsoft\\Windows\\appsFolder.itemdata-ms";
+			var bakpath = folder.Self.Path + "\\Microsoft\\Windows\\appsFolder.itemdata-ms.bak";
+			var mssrc = "c:\\setup\\GoldappsFolder.itemdata-ms";
+			var msbaksrc = "c:\\setup\\GoldappsFolder.itemdata-ms.bak";
+			
+			fs.DeleteFile(path,true);
+			fs.CopyFile(mssrc,path);
+			fs.DeleteFile(bakpath,true);
+			fs.CopyFile(msbaksrc,bakpath);
+
+			alert("設定が完了しました。一度ログオフして、ログオンしなおしてください。");
+			//winLogOff();
+		})
 
 		$("span.your_mail_addr").text(getCurrentUser()+"@yamaokaya.com");
 

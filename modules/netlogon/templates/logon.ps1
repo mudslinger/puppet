@@ -171,22 +171,3 @@ if(-not(Test-Path $main)){
     Set-ItemProperty $main `
       -Name "Default_Search_URL" -Value $spage
 }
-
-#copy itemdata-ms
-$itemdatams = "c:\setup\GoldappsFolder.itemdata-ms"
-$itmedatamsbak = "c:\setup\GoldappsFolder.itemdata-ms.bak"
-$appfolderpath = [Environment]::GetFolderPath('ApplicationData') + "\Microsoft\Windows"
-if(test-path $itemdatams){
-    $dest = $appfolderpath + "\appsFolder.itemdata-ms"
-    if(-not(test-path $dest)){
-        Copy-Item $itemdatams $dest
-    }
-}
-if(test-path $itmedatamsbak){
-    $dest = $appfolderpath + "\appsFolder.itemdata-ms.bak"
-    if(-not(test-path $dest)){
-        Copy-Item $itmedatamsbak $dest
-    }
-}
- 
-Stop-Process -ProcessName explorer
