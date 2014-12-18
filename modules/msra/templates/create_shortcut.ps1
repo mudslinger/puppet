@@ -1,4 +1,4 @@
-﻿$shell = New-Object -ComObject WScript.Shell
+$shell = New-Object -ComObject Wscript.Shell
 $path = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs"
 $cmd = [Environment]::GetFolderPath("System") + "\cmd.exe"
 $dest = "$path\remoteassistance.lnk"
