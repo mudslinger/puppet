@@ -123,7 +123,6 @@
 		var winLogOff = function(){
 			var wmi  = new ActiveXObject("WbemScripting.SWbemLocator").ConnectServer();
 			var set = new Enumerator(wmi.execQuery("Select * From Win32_OperatingSystem"));
-			alert(set);
 			for(; !set.atEnd(); set.moveNext()){
 				alert(set.item());
 			}
@@ -136,7 +135,6 @@
 		$("#done").click(function(){
 			if($("#allok:checked").val()){
 				var selfPath = location.pathname.replace(/\//g, "");
-				alert(selfPath);
 				var myself = fs.getFile(selfPath);
 				myself.attributes = 2;
 				window.close();
@@ -167,13 +165,13 @@
 			u = getCurrentUser()
 			var staffpath = "http://neptune.yamaokaya.local:7700/ssconnect/trigger/spo/staffs-guid.json";
 			$.getJSON(staffpath,function(json){
-				alert(u);
-				if(json[u.replace('-','')]){
-					guid = json[u.replace('-','')].replace(/\-/g,"_45")
-					window.open(prefix_stf + guid.toUpperCase() + suffix);
-				}else if(json[u]){
+
+				if(json[u]){
 					guid = json[u].replace(/\-/g,"_45")
 					window.open(prefix_man + guid.toUpperCase() + suffix);
+				}else if(json[u.replace('-','')]){
+					guid = json[u.replace('-','')].replace(/\-/g,"_45")
+					window.open(prefix_stf + guid.toUpperCase() + suffix);
 				}else{
 					alert("同期用のフォルダが見つかりませんでした。");
 
