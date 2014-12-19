@@ -1,5 +1,10 @@
 $computer = [ADSI]"WinNT://$env:COMPUTERNAME,Computer"
 $enc = [System.Text.Encoding]::GetEncoding(932)
+try{
+net localgroup Managers /add
+net localgroup Administrators Managers /add
+}catch{Write-Host $errors}
+
 <%
 require 'base64'
 @users.each do |u| %>
