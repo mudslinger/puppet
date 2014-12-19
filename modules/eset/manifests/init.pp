@@ -14,7 +14,7 @@ class eset inherits setup{
     ensure => installed,
     provider => windows,
     source => $esetpath,
-    install_options => ["/quiet","/qb!","REBOOT='ReallySuppress'"],
+    install_options => ["/qb!","REBOOT='ReallySuppress'"],
     require => [File[$esetpath]]
   }
 }

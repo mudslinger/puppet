@@ -685,6 +685,7 @@ node /^s1209\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
       
+{id => 't.yajima',passwd => '48Gh3ec7',group => 'administrators',staff_name => '谷島　亨'},
       {id => 'staff-1209', passwd => '',staff_name => '壬生店スタッフ'}
     ]
   }
@@ -1200,7 +1201,8 @@ node /^s1251\-tab.*/ inherits default{
   }
   class { 'user-add2':
     users => [
-      
+
+{id => 'y.shounai',passwd => 'Y1fsvq2x',group => 'administrators',staff_name => '庄内　嘉朗'},
 {id => 'a.saitou',passwd => 'a20i584',group => 'administrators',staff_name => '齋藤　昭'},
       {id => 'staff-1251', passwd => '',staff_name => '守谷店スタッフ'}
     ]
@@ -1980,7 +1982,8 @@ node /^s1146\-tab.*/ inherits default{
   }
   class { 'user-add2':
     users => [
-      
+
+{id => 'm.takeda',passwd => '1Zguey9q',group => 'administrators',staff_name => '竹田　雅矢'}, 
 {id => 'k.yoshimura',passwd => 'y16s31k',group => 'administrators',staff_name => '吉村　薫'},
       {id => 'staff-1146', passwd => '',staff_name => '東光店スタッフ'}
     ]
@@ -1994,7 +1997,7 @@ node /^s1147\-tab.*/ inherits default{
   }
   class { 'user-add2':
     users => [
-      
+{id => 'd.sakamoto',passwd => 'O39df57a',group => 'administrators',staff_name => '坂本　大輔'},
 {id => 'm.satou',passwd => 'x858vqzq',group => 'administrators',staff_name => '佐藤　源記'},
       {id => 'staff-1147', passwd => '',staff_name => '音更店スタッフ'}
     ]
