@@ -3,6 +3,7 @@ class sevenzip inherits setup{
 	file{"$sevenpath":
 		ensure => "present",
 		source => "puppet:///files/7zip.msi",
+		source_permissions => ignore,
 		require => File[$setupdir]
 	}
 	package{ "seven_zip":

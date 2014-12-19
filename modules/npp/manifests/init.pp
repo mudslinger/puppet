@@ -3,6 +3,7 @@ class npp inherits setup{
 	file{"$npppath":
 		ensure => "present",
 		source => "puppet:///files/npp.msi",
+		source_permissions => ignore,
 		require => File[$setupdir]
 	}
 	package{ "notepadpp":

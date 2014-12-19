@@ -20,4 +20,8 @@ class pinned-site{
 	  ensure => "present",
 	  content => template('pinned-site/xpoint.website')
   }
+	file{ "$pos\\Delious.website":
+	  ensure => "present",
+	  content => template('pinned-site/delious.website')
+  }
 }
