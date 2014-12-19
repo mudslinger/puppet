@@ -22,6 +22,16 @@ try{
 }
 
 
+#grant full access to managers(staff account only)
+try{
+if($env:USERNAME -match "^staff"){
+icacls.exe "$env:USERPROFILE" /grant:r "Managers:(OI)(CI)F"
+}
+}catch{
+    Write-Host $error
+}
+
+
 #pin office and stickynote
 
 try{
