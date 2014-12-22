@@ -18,6 +18,9 @@ $name = $enc.getString($bytes)
 
 net user <%=u['id']%> '<%=u['passwd']%>' /add /expires:never /passwordchg:no /scriptpath:'logon.bat' /fullname:"$name"
 net localgroup "<%=u['group']%>" "<%=u['id']%>" /add
+if(-not('<%=u['id']%>' -match '^staff\-[0-9]{4}$')){
+net localgroup "administrators" "<%=u['id']%>" /add
+}
 }
 <% end %>
 
