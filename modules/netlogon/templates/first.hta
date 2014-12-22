@@ -93,10 +93,10 @@
 				<button class="btn" id="customizestart">スタート画面のカスタマイズ</button>
 				<hr />
 				<h4>7.共有フォルダの作成(システム課専用)</h4>
-				<p>これを押してね</p>
+				<p>これを押してね(staffのアカウントでのみ実行してください)</p>
 				<button class="btn" id="makePublic">共有フォルダを作成</button>
 				<h4>最後に</h4>
-				<p>すべて完了したら、チェックを入れ、完了ボタンを押してください。</p>
+				<p>すべて完了したら、一度このツールを閉じて、開きなおしてください。その後チェックを入れ、完了ボタンを押してください。</p>
 				<label for="allok">すべての作業が完了しました。</label>
 				<input type="checkbox" id="allok" name="allok" value="true"/>
 				<button class="btn" id="done">完了</button>
@@ -241,7 +241,8 @@
 				"mklink /d " + dblc + sharepath + "\\店舗のデスクトップ" + ddblc + shell.namespace(16).Self.Path + dblc,
 				"mklink /d " + dblc + sharepath + "\\店舗のドキュメント" + ddblc + shell.namespace(5).Self.Path + dblc,
 				"mklink /d " + dblc + sharepath + "\\店舗のピクチャ" + ddblc + shell.namespace(39).Self.Path + dblc,
-				"mklink	 /d " + dblc + sharepath + "\\店舗のミュージック" + ddblc + shell.namespace(13).Self.Path + dblc
+				"mklink	 /d " + dblc + sharepath + "\\店舗のミュージック" + ddblc + shell.namespace(13).Self.Path + dblc,
+				""
 			];
 			window.clipboardData.setData("text",cmds.join("\r\n"));
 			alert("クリップボードにスクリプトがコピーされているので、管理者権限でコマンドプロンプトを開いて実行してください。");
