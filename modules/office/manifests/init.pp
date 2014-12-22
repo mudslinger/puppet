@@ -23,7 +23,6 @@ class office(
   exec{ "download_groove":
     command => template('office/setup.ps1'),
     provider => powershell,
-    #unless => "if((Get-ItemProperty 'HKLM:\\SOFTWARE\\Microsoft\\Office\\15.0\\ClickToRun\\Configuration\\').platform -eq 'X64'){exit 1}",
     timeout => 1900,
     require => [File[$grvpath],File[$confxmlpath]]
   }
