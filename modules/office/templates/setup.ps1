@@ -1,3 +1,4 @@
-if(-not(Get-WmiObject -Class Win32_Product | ? { $_.name -like '*Click-to-Run*' })){
+$platform = (Get-ItemProperty 'HKLM:\\SOFTWARE\\Microsoft\\Office\\15.0\\ClickToRun\\Configuration\\').platform
+if($platform -ne 'X64')){
 Invoke-Expression -Command "<%=@grvpath%>\setup.exe /configure <%=@confxmlpath%>"
 }
