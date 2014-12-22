@@ -49,6 +49,10 @@ Get-AppxProvisionedPackage -online | ForEach-Object {
 # Get-AppxProvisionedPackage -online | where DisplayName -eq Weather.TheWeatherChannelforLenovo | Remove-AppxProvisionedPackage -Online
 
 #uninstall normal apps
+try{
 (Get-WmiObject -class Win32_product -filter "Name like '%Lenovo Solution Center%'").uninstall()
 #(Get-WmiObject -class Win32_product -filter "Name like '%Lenovo System Update%'").uninstall()
 #(Get-WmiObject -class Win32_product -filter "Name like '%Lenovo Messenger%'").uninstall()
+}catch{
+    write-host $error
+}
