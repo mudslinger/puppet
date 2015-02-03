@@ -23,7 +23,7 @@ node default {
       ntp_server => '192.168.11.1'
     }
     include opt-feature
-    include office
+    #include office
     include msra
     include adobe-reader
     include flash-plugin

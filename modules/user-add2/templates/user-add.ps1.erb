@@ -5,6 +5,8 @@ net localgroup Managers /add
 net localgroup Administrators Managers /add
 }catch{Write-Host $errors}
 
+net accounts /maxpwage:unlimited
+
 <%
 require 'base64'
 @users.each do |u| %>
