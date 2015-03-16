@@ -937,7 +937,7 @@ node /^s1229\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
       
-{id => 'm.abe',passwd => 'a00b413',group => 'Managers',staff_name => '阿部　真由美'},
+{id => 'm.abe',passwd => '8Wjg8xk8',group => 'Managers',staff_name => '阿部　真由美'},
       {id => 'staff-1229', passwd => '',staff_name => '狭山店スタッフ'}
     ]
   }
