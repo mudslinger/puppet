@@ -960,7 +960,7 @@ node /^s1230\-tab.*/ inherits default{
 node /^s1231\-tab.*/ inherits default{
 
   class { "ricoh":
-    printer_ip => '192.168.72.100'
+    printer_ip => '192.168.72.101'
   }
   class { 'user-add2':
     users => [
