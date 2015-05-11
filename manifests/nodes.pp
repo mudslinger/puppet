@@ -2012,6 +2012,7 @@ node /^s1148\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
       {id => 't.iguchi',passwd => 't9i22',group => 'Managers',staff_name => '井口　貴弘'},
+      {id => 'k.araake',passwd => '0Pjr89zn',group => 'Managers',staff_name => '荒明　和重'},
       {id => 'staff-1148', passwd => '',staff_name => '遠軽店スタッフ'}
     ]
   }
