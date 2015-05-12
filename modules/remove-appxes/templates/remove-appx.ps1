@@ -51,6 +51,9 @@ Get-AppxProvisionedPackage -online | ForEach-Object {
 #uninstall normal apps
 try{
 (Get-WmiObject -class Win32_product -filter "Name like '%Lenovo Solution Center%'").uninstall()
+(Get-WmiObject -class Win32_product -filter "Name like '%Amazon 1Button App%'").uninstall()
+(Get-WmiObject -class Win32_product -filter "Name like '%REACHit%'").uninstall()
+(Get-WmiObject -class Win32_product -filter "Name like '%Dropbox 15 GB%'").uninstall()
 #(Get-WmiObject -class Win32_product -filter "Name like '%Lenovo System Update%'").uninstall()
 #(Get-WmiObject -class Win32_product -filter "Name like '%Lenovo Messenger%'").uninstall()
 }catch{
