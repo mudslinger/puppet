@@ -2029,7 +2029,6 @@ node /^s1149\-tab.*/ inherits default{
 }
 
 node /^s1306\-tab.*/ inherits default{
-  include office
   class { "ricoh":
     printer_ip => '192.168.82.101'
   }
@@ -2050,6 +2049,19 @@ node /^s1150\-tab.*/ inherits default{
     users => [
       {id => 's.uemura',passwd => 'u11m325',group => 'Managers',staff_name => '上村　心哉'},
       {id => 'staff-1150', passwd => '',staff_name => '中標津店スタッフ'}
+    ]
+  }
+}
+
+node /^s1307\-tab.*/ inherits default{
+  include office
+  class { "ricoh":
+    printer_ip => '192.168.82.165'
+  }
+  class { 'user-add2':
+    users => [
+      {id => 'k.ohmichi',passwd => 'o42m905',group => 'Managers',staff_name => '小林　健吾'},
+      {id => 'staff-1307', passwd => '',staff_name => '館林店スタッフ'}
     ]
   }
 }
