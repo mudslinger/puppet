@@ -20,6 +20,13 @@ class trusted-sites{
     value => '*',
     data => 1
   }
+  #elis2
+  registry::value{ "elis":
+    key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\fgedi.com",
+    type => dword,
+    value => '*',
+    data => 1
+  }
   #winboard
   registry::value{ "winboard":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\winboard.jp\ec9",
