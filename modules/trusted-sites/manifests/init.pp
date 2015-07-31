@@ -21,7 +21,7 @@ class trusted-sites{
     data => 1
   }
   #elis2
-  registry::value{ "elis":
+  registry::value{ "elis2":
     key => "HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\fgedi.com",
     type => dword,
     value => '*',
