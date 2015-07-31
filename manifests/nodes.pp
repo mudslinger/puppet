@@ -990,8 +990,8 @@ node /^s1233\-tab.*/ inherits default{
   }
   class { 'user-add2':
     users => [
-
-{id => 'k.ohmichi',passwd => 'o42m905',group => 'Managers',staff_name => '小林　健吾'},
+      {id => 'k.ohmichi',passwd => 'o42m905',group => 'Managers',staff_name => '小林　健吾'},
+      {id => 'h.sawada',passwd => 'C5hwmu22',group => 'Managers',staff_name => '澤田　博孝'},
       {id => 'staff-1233', passwd => '',staff_name => '高崎中尾店スタッフ'}
     ]
   }
