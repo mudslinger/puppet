@@ -2061,6 +2061,7 @@ node /^s1307\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
       {id => 'k.ohmichi',passwd => 'o42m905',group => 'Managers',staff_name => '小林　健吾'},
+      {id => 'h.taira',passwd => 'Ys2xcoe2',group => 'Managers',staff_name => '平 秀昭'},
       {id => 'staff-1307', passwd => '',staff_name => '館林店スタッフ'}
     ]
   }
