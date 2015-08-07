@@ -381,7 +381,7 @@ node /^s1119\-tab.*/ inherits default{
   }
   class { 'user-add2':
     users => [
-
+      {id => 'm.nakamura',passwd => '98Z4os6y',group => 'Managers',staff_name => '中村　麻美'},
       {id => 'staff-1119', passwd => '',staff_name => '旭川高砂台店スタッフ'}
     ]
   }
