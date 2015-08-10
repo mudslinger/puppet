@@ -650,14 +650,14 @@ node /^s1205\-tab.*/ inherits default{
 }
 
 node /^s1207\-tab.*/ inherits default{
-
+  include office
   class { "ricoh":
     printer_ip => '192.168.69.164'
   }
   class { 'user-add2':
     users => [
-
-{id => 'a.saitoh',passwd => 'Ts0k2c0p',group => 'Managers',staff_name => '斉藤　暁憲'},
+      {id => 'h.izawa',passwd => 'i05a224',group => 'Managers',staff_name => '伊澤　秀和'},
+      {id => 'a.saitoh',passwd => 'Ts0k2c0p',group => 'Managers',staff_name => '斉藤　暁憲'},
       {id => 'staff-1207', passwd => '',staff_name => '宇都宮鶴田店スタッフ'}
     ]
   }
