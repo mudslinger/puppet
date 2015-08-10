@@ -375,7 +375,7 @@ node /^s1118\-tab.*/ inherits default{
 }
 
 node /^s1119\-tab.*/ inherits default{
-
+  include office
   class { "ricoh":
     printer_ip => '192.168.67.36'
   }
@@ -2053,6 +2053,7 @@ node /^s1150\-tab.*/ inherits default{
 }
 
 node /^s1307\-tab.*/ inherits default{
+
   class { "ricoh":
     printer_ip => '192.168.82.165'
   }
