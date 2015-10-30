@@ -4,11 +4,11 @@
 class ricoh(
   $printer_ip = "0.0.0.0"
 ) inherits setup{
-  $monopath = "$setupdir\176757"
-  $colorpath = "$setupdir\176758"
+  $monopath = "$setupdir\184255"
+  $colorpath = "$setupdir\184256"
   file{ $monopath:
     ensure => present,
-    source => "puppet:///files/176757",
+    source => "puppet:///files/184255",
     source_permissions => ignore,
     recurse => true,
     require => File[$setupdir]
@@ -16,7 +16,7 @@ class ricoh(
 
   file{ $colorpath:
     ensure => present,
-    source => "puppet:///files/176758",
+    source => "puppet:///files/184256",
     source_permissions => ignore,
     recurse => true,
     require => File[$setupdir]
