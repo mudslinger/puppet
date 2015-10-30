@@ -10,6 +10,11 @@ class misc-registry{
     type => string,
     data => "www3.fujipan.co.jp"
   }
+  registry::value { "www.fgedi.com":
+    key => "HKLM\Software\Policies\Microsoft\Internet Explorer\BrowserEmulation\PolicyList",
+    type => string,
+    data => "www.fgedi.com"
+  }
   #IEホームページ
   registry::value { "Start Page":
     key => "HKLM\Software\Microsoft\Internet Explorer\Main",
@@ -55,6 +60,11 @@ class misc-registry{
 
   #popupblock
   registry::value { "*.fujipan.co.jp":
+    key => "HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\New Windows\\Allow",
+    type => binary,
+    data => '00 00'
+  }
+  registry::value { "*.fgedi.com":
     key => "HKLM\\SOFTWARE\\Microsoft\\Internet Explorer\\New Windows\\Allow",
     type => binary,
     data => '00 00'
