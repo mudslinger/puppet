@@ -98,7 +98,7 @@ node /^s1260\-tab.*/ inherits default{
 }
 
 node /^s1261\-tab.*/ inherits default{
-  include office
+  #include office
   class { "ricoh":
     printer_ip => '192.168.64.132'
   }
