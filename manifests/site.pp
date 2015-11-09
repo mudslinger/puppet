@@ -6,7 +6,7 @@ node default {
   include ping-buffer-size
   include msao
   include servicedeskplus
-  include eset
+  #include eset
   include vnc
   include netlogon
   include pinned-site
