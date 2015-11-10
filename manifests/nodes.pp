@@ -100,7 +100,7 @@ node /^s1260\-tab.*/ inherits default{
 node /^s1261\-tab.*/ inherits default{
   #include office
   class { "ricoh":
-    printer_ip => '192.168.64.132'
+    printer_ip => '192.168.64.133'
   }
   class { 'user-add2':
     users => [
@@ -472,14 +472,14 @@ node /^s1125\-tab.*/ inherits default{
 }
 
 node /^s1126\-tab.*/ inherits default{
-
+  include office
+  include eset
   class { "ricoh":
     printer_ip => '192.168.68.4'
   }
   class { 'user-add2':
     users => [
-
-{id => 'g.onodera',passwd => '6Ks6k1k3',group => 'Managers',staff_name => '小野寺　剛太'},
+      {id => 'm.iimura',passwd => 'F0qzaoep',group => 'Managers',staff_name => '飯村　将也'},
       {id => 'staff-1126', passwd => '',staff_name => '上磯店スタッフ'}
     ]
   }
@@ -1545,7 +1545,7 @@ node /^s1142\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
 
-{id => 'm.iimura',passwd => 'F0qzaoep',group => 'Managers',staff_name => '飯村　将也'},
+      {id => 'm.iimura',passwd => 'F0qzaoep',group => 'Managers',staff_name => '飯村　将也'},
       {id => 'staff-1142', passwd => '',staff_name => '函館鍛冶店スタッフ'}
     ]
   }

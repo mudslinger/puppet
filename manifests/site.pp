@@ -28,7 +28,7 @@ node default {
     include adobe-reader
     include flash-plugin
     if $operatingsystem == 'windows' {
-      if $operatingsystemrelease == '8.1' {
+      if $operatingsystemrelease >= '8.1' {
         include power-management   
         include uac
         include remove-appxes
