@@ -472,8 +472,8 @@ node /^s1125\-tab.*/ inherits default{
 }
 
 node /^s1126\-tab.*/ inherits default{
-  include office
-  include eset
+  #include office
+  #include eset
   class { "ricoh":
     printer_ip => '192.168.68.4'
   }
