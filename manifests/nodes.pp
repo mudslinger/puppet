@@ -84,14 +84,15 @@ node /^s7203\-tab.*/ inherits default{
 }
 
 node /^s1260\-tab.*/ inherits default{
-
+  include office
+  include eset
   class { "ricoh":
-    printer_ip => '192.168.64.100'
+    printer_ip => '192.168.64.102'
   }
   class { 'user-add2':
     users => [
 
-{id => 'k.arai',passwd => 'metpc37t',group => 'Managers',staff_name => '新井　功一'},
+      {id => 'k.arai',passwd => 'metpc37t',group => 'Managers',staff_name => '新井　功一'},
       {id => 'staff-1260', passwd => '',staff_name => '平塚店スタッフ'}
     ]
   }
