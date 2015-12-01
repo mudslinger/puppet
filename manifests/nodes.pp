@@ -2117,6 +2117,37 @@ node /^s1263\-tab.*/ inherits default{
   }
 }
 
+node /^s1153\-tab.*/ inherits default{
+  include eset
+  include office
+  class { "ricoh":
+    printer_ip => '192.168.64.229'
+  }
+  class { 'user-add2':
+    users => [
+  　　{id => 'n.kayukawa',passwd => 'k10y563',group => 'Managers',staff_name => '粥川　紀夫'},
+　  　{id => 'm.yokoyama',passwd => 'W5kw7gnp',group => 'Managers',staff_name => '横山　将寿'}, 
+      {id => 'staff-1153', passwd => '',staff_name => '士別店スタッフ'}
+    ]
+  }
+}
+
+node /^s1308\-tab.*/ inherits default{
+  include eset
+  include office
+  class { "ricoh":
+    printer_ip => '192.168.83.37'
+  }
+  class { 'user-add2':
+    users => [
+  　　{id => 'm.hashimoto',passwd => 'Pwv0z6rr',group => 'Managers',staff_name => '橋本　誠'},
+      {id => 'staff-1263', passwd => '',staff_name => '神栖店スタッフ'}
+    ]
+  }
+}
+
+
+
 
 
 node /^s5201\-tab.*/ inherits default{
