@@ -2141,7 +2141,7 @@ node /^s1308\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
       {id => 'm.hashimoto',passwd => 'Pwv0z6rr',group => 'Managers',staff_name => '橋本　誠'},
-      {id => 'staff-1263', passwd => '',staff_name => '神栖店スタッフ'}
+      {id => 'staff-1308', passwd => '',staff_name => '神栖店スタッフ'}
     ]
   }
 }
