@@ -93,6 +93,7 @@ node /^s1260\-tab.*/ inherits default{
     users => [
 
       {id => 'k.arai',passwd => 'metpc37t',group => 'Managers',staff_name => '新井　功一'},
+      {id => 'w.akita',passwd => 'T1x8jlhx',group => 'Managers',staff_name => '秋田　航'},
       {id => 'staff-1260', passwd => '',staff_name => '平塚店スタッフ'}
     ]
   }
