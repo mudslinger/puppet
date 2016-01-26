@@ -658,6 +658,7 @@ node /^s1207\-tab.*/ inherits default{
     users => [
       {id => 'h.izawa',passwd => 'i05a224',group => 'Managers',staff_name => '伊澤　秀和'},
       {id => 'a.saitoh',passwd => 'Ts0k2c0p',group => 'Managers',staff_name => '斉藤　暁憲'},
+      {id => 'h.itou',passwd => 'plpkeif8',group => 'Managers',staff_name => '伊藤　英'},
       {id => 'staff-1207', passwd => '',staff_name => '宇都宮鶴田店スタッフ'}
     ]
   }
@@ -1995,9 +1996,9 @@ node /^s1146\-tab.*/ inherits default{
   }
   class { 'user-add2':
     users => [
-
-{id => 'm.takeda',passwd => '1Zguey9q',group => 'Managers',staff_name => '竹田　雅矢'},
-{id => 'k.yoshimura',passwd => 'y16s31k',group => 'Managers',staff_name => '吉村　薫'},
+      {id => 'm.takeda',passwd => '1Zguey9q',group => 'Managers',staff_name => '竹田　雅矢'},
+      {id => 'k.yoshimura',passwd => 'y16s31k',group => 'Managers',staff_name => '吉村　薫'},
+      {id => 'm.yokoyama',passwd => 'W5kw7gnp',group => 'Managers',staff_name => '横山　将寿'},
       {id => 'staff-1146', passwd => '',staff_name => '東光店スタッフ'}
     ]
   }
@@ -2127,7 +2128,7 @@ node /^s1153\-tab.*/ inherits default{
   class { 'user-add2':
     users => [
       {id => 'n.kayukawa',passwd => 'k10y563',group => 'Managers',staff_name => '粥川　紀夫'},
-      {id => 'm.yokoyama',passwd => 'W5kw7gnp',group => 'Managers',staff_name => '横山　将寿'}, 
+      {id => 't.watanabe',passwd => 'Epz2paqw',group => 'Managers',staff_name => '渡辺　哲平'},
       {id => 'staff-1153', passwd => '',staff_name => '士別店スタッフ'}
     ]
   }
