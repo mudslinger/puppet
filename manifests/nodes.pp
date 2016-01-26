@@ -84,8 +84,7 @@ node /^s7203\-tab.*/ inherits default{
 }
 
 node /^s1260\-tab.*/ inherits default{
-  include office
-  include eset
+
   class { "ricoh":
     printer_ip => '192.168.64.102'
   }
